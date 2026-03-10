@@ -282,43 +282,65 @@ box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 /* SKILLS */
 
-.skills{
+.skills-layout{
+
 display:flex;
+align-items:center;
 justify-content:space-between;
+gap:60px;
 flex-wrap:wrap;
-gap:40px;
+
 }
 
-.skill-list{
+/* LEFT SIDE */
+
+.skills-left{
 flex:1;
 }
 
-.skill-list ul{
-list-style:none;
-margin-top:10px;
+.skill-row{
+
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:30px;
+
 }
 
-.skill-list li{
-padding:6px 0;
+.skill-row span{
+
+padding:8px 14px;
+border-radius:20px;
+background:#f1f5f9;
+font-size:14px;
 transition:0.3s;
 cursor:pointer;
+
 }
 
-.skill-list li:hover{
-transform:translateX(6px);
-background:linear-gradient(90deg,orange,red);
--webkit-background-clip:text;
-color:transparent;
+/* HARD SKILL HOVER */
+
+.skill-row.hard span:hover{
+
+background:linear-gradient(90deg,orange,#f97316);
+color:white;
+
 }
 
-.soft li:hover{
+/* SOFT SKILL HOVER */
+
+.skill-row.soft span:hover{
+
 background:linear-gradient(90deg,purple,#9333ea);
--webkit-background-clip:text;
-color:transparent;
+color:white;
+
 }
 
-.chart{
-width:400px;
+/* RIGHT SIDE */
+
+.skills-right{
+flex:1;
+max-width:450px;
 }
 
 /* EDUCATION */
@@ -426,16 +448,40 @@ transform:translateY(-8px);
 
 <div class="title">Skills</div>
 
-<div class="skills-container">
+<div class="skills-layout">
 
-<div class="skill-chart">
-<h3>Hard Skills</h3>
-<canvas id="hardSkills"></canvas>
+<!-- LEFT -->
+
+<div class="skills-left">
+
+<h3 class="hard-title">Hard Skills</h3>
+
+<div class="skill-row hard">
+<span>Excel</span>
+<span>SQL</span>
+<span>Python</span>
+<span>Tableau</span>
+<span>Power BI</span>
+<span>Data Cleaning</span>
 </div>
 
-<div class="skill-chart">
-<h3>Soft Skills</h3>
-<canvas id="softSkills"></canvas>
+<h3 class="soft-title">Soft Skills</h3>
+
+<div class="skill-row soft">
+<span>Communication</span>
+<span>Adaptability</span>
+<span>Analytical Thinking</span>
+<span>Strong attention to detail</span>
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="skills-right">
+
+<canvas id="skillsRadar"></canvas>
+
 </div>
 
 </div>
@@ -590,52 +636,72 @@ btn.innerText="Less"
 
 }
 
-/* RADAR CHART */
+const ctx = document.getElementById('skillsRadar');
 
-const ctx=document.getElementById('radar')
+new Chart(ctx, {
 
-new Chart(ctx,{
-type:'radar',
-data:{
-labels:[
-'Excel','SQL','Python','Data Cleaning','Power BI','Tableau',
-'Communication','Adaptability','Analytical Thinking','Attention Detail'
+type: 'radar',
+
+data: {
+
+labels: [
+'Excel',
+'SQL',
+'Python',
+'Tableau',
+'Power BI',
+'Data Cleaning',
+'Communication',
+'Adaptability',
+'Analytical Thinking',
+'Attention to Detail'
 ],
-datasets:[
+
+datasets: [
+
 {
-label:'Hard Skills',
-data:[3,3,3,4,2.5,2.5,0,0,0,0],
-backgroundColor:'rgba(255,165,0,0.2)',
-borderColor:'orange',
-pointBackgroundColor:'orange'
+label: 'Hard Skills',
+data: [4,4,3,3,3,4,0,0,0,0],
+backgroundColor: 'rgba(249,115,22,0.2)',
+borderColor: '#f97316',
+pointBackgroundColor:'#f97316'
 },
+
 {
-label:'Soft Skills',
-data:[0,0,0,0,0,0,2,4.5,3,4],
-backgroundColor:'rgba(147,51,234,0.2)',
-borderColor:'purple',
-pointBackgroundColor:'purple'
+label: 'Soft Skills',
+data: [0,0,0,0,0,0,4,4,4,5],
+backgroundColor: 'rgba(147,51,234,0.2)',
+borderColor: '#9333ea',
+pointBackgroundColor:'#9333ea'
 }
+
 ]
+
 },
-options:{
+
+options: {
+
 responsive:true,
-plugins:{
-legend:{
-labels:{
-color:getComputedStyle(document.body).color
-}
-}
-},
+
 scales:{
+
 r:{
 beginAtZero:true,
 max:5,
 ticks:{display:false}
 }
+
+},
+
+plugins:{
+legend:{
+position:'bottom'
 }
 }
-})
+
+}
+
+});
 
 </script>
 
