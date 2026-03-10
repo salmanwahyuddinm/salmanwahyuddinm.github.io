@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Data Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --secondary: #64748b;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px 5%;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 100px 10% 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+        }
+
+        /* --- Row 1: About Me --- */
+        #about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-photo {
+            flex: 0 0 300px;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 20px 20px 0px var(--primary);
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Row 2: Skills --- */
+        #skills { background-color: var(--light); }
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 10px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .skill-tag {
+            background: var(--light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- Row 3 & 4: Education & Experience --- */
+        .timeline-item {
+            margin-bottom: 40px;
+            padding-left: 20px;
+            border-left: 3px solid var(--primary);
+            position: relative;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .gpa {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        /* --- Row 5: Projects --- */
+        #project { background-color: var(--light); }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border-top: 5px solid var(--primary);
+        }
+
+        .btn-doc {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--dark);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-doc:hover {
+            background: var(--primary);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            #about-content, .skills-container {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+            .about-photo { order: -1; margin: 0 auto; }
+            nav { justify-content: center; width: 100%; background: white; padding: 10px; }
+            .timeline-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#project">Project</a>
+    </nav>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div id="about-content">
+            <div class="about-text">
+                <p>I am a passionate <strong>Information System graduate</strong> and <strong>Data Analytics professional</strong>. I specialize in transforming raw data into actionable business insights through rigorous cleaning, analysis, and visualization. With a background in entrepreneurship and data entry, I bring a unique blend of business acumen and technical precision to every project.</p>
+            </div>
+            <div class="about-photo">
+                <img src="your-photo.jpg" alt="Profile Photo"> </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h3>Hard Skills</h3>
+                <ul class="skill-list">
+                    <li class="skill-tag">Excel</li>
+                    <li class="skill-tag">SQL</li>
+                    <li class="skill-tag">Python</li>
+                    <li class="skill-tag">Data Cleaning</li>
+                    <li class="skill-tag">Power BI</li>
+                    <li class="skill-tag">Tableau</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Soft Skills</h3>
+                <ul class="skill-list">
+                    <li class="skill-tag">Communication</li>
+                    <li class="skill-tag">Adaptability</li>
+                    <li class="skill-tag">Analytical Thinking</li>
+                    <li class="skill-tag">Strong attention to detail</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3>STMIK MARDIRA</h3>
+                <span class="date">Jan, 2019 – Feb, 2022</span>
+            </div>
+            <p class="gpa">GPA: 3.20 / 4.00</p>
+            <p><strong>Bachelor of Information System (SI)</strong></p>
+            <p><em>Thesis: Sistem Informasi Keuangan : Kitchen Al - Watani</em></p>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3>RevoU</h3>
+                <span class="date">June, 2025 – Present</span>
+            </div>
+            <p><strong>Full Stack Data Analytics</strong></p>
+            <ul>
+                <li>Completed an intensive industry-focused data analytics program covering end-to-end data analysis, including data cleaning, querying, statistical analysis, data visualization, and business insight generation.</li>
+                <li>Developed hands-on experience using Python, SQL, Tableau, and Power BI to analyze datasets, build dashboards, and deliver actionable insights through real-world projects.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3>Owner - Kitchen Al - Watani – Cimahi</h3>
+                <span class="date">Jan, 2019 – Present</span>
+            </div>
+            <ul>
+                <li>Developed automated financial and sales reports from manual written records using Microsoft Excel (formulas, spreadsheets, price calculation templates), improving pricing accuracy and increasing time efficiency in income and expense tracking.</li>
+                <li>Conducted daily monitoring of office supplies and sales inventory using stock tracking sheets and Excel inventory logs, ensuring stock availability and supporting smooth business operations without disruption.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <h3>Data Entry - PT. Newfemme – DKI Jakarta</h3>
+                <span class="date">March, 2022 – August, 2023</span>
+            </div>
+            <p style="margin-bottom: 10px; font-style: italic; color: var(--secondary);">The multi-service tech application that understands women the most.</p>
+            <ul>
+                <li>Inputted and validated high-volume operational data into company databases using Microsoft Excel and internal SaaS systems, ensuring 99%+ data accuracy and supporting reliable business reporting.</li>
+                <li>Collaborated with cross-functional teams to define data entry requirements using Excel validation tools and standardized data templates, improving data consistency and reducing processing error.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="project">
+        <h2 class="section-title">Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Kitchen Al-Watani Financial System</h3>
+                <p>Designed and implemented a comprehensive financial tracking system using advanced Excel automation to streamline bookkeeping and inventory management for a culinary business.</p>
+                <a href="#" class="btn-doc">Documentation</a>
+            </div>
+            </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; font-size: 0.8rem; color: var(--secondary);">
+        &copy; 2026 | Created for GitHub Pages
+    </footer>
+
+</body>
+</html>
