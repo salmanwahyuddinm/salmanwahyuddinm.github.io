@@ -36,30 +36,82 @@ color:white;
 /* NAVBAR */
 
 nav{
+
 position:fixed;
-top:20px;
-left:20px;
+top:0;
+left:0;
+width:100%;
+
 display:flex;
-flex-direction:column;
-gap:10px;
-z-index:100;
-}
+justify-content:space-between;
+align-items:center;
 
-nav a{
-text-decoration:none;
-padding:10px 18px;
-background:rgba(255,255,255,0.8);
-border-radius:25px;
+padding:15px 8%;
+
+background:rgba(255,255,255,0.7);
 backdrop-filter:blur(10px);
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-transition:0.3s;
-font-size:14px;
+
+box-shadow:0 4px 20px rgba(0,0,0,0.05);
+
+z-index:100;
+
 }
 
-nav a:hover{
-transform:translateX(5px);
-background:linear-gradient(90deg,#6366f1,#8b5cf6);
-color:white;
+body.dark nav{
+background:rgba(15,23,42,0.8);
+}
+
+.logo{
+
+font-size:20px;
+font-weight:700;
+
+background:linear-gradient(90deg,#6366f1,#ec4899);
+-webkit-background-clip:text;
+color:transparent;
+
+}
+
+.nav-links{
+
+display:flex;
+gap:30px;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+font-weight:500;
+color:inherit;
+
+position:relative;
+
+transition:0.3s;
+
+}
+
+/* underline animation */
+
+.nav-links a::after{
+
+content:'';
+position:absolute;
+
+width:0;
+height:2px;
+
+left:0;
+bottom:-4px;
+
+background:linear-gradient(90deg,#6366f1,#ec4899);
+
+transition:0.3s;
+
+}
+
+.nav-links a:hover::after{
+width:100%;
 }
 
 /* DARK BUTTON */
@@ -78,7 +130,7 @@ color:white;
 /* SECTIONS */
 
 section{
-padding:100px 10%;
+padding:120px 10%;
 }
 
 .title{
@@ -215,13 +267,15 @@ transform:translateY(-8px);
 
 <!-- NAV -->
 
-<nav>
+<div class="logo">Portfolio</div>
 
-<a href="#about">About</a>
+<div class="nav-links">
+<a href="#about">About Me</a>
 <a href="#skills">Skill</a>
 <a href="#education">Education</a>
 <a href="#experience">Experience</a>
 <a href="#project">Project</a>
+</div>
 
 </nav>
 
