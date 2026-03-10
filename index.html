@@ -224,6 +224,78 @@
             </div>
         </div>
     </section>
+    
+<section>
+    <title>Skill Mastery Radar Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f5f5f5;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+        .container{
+            width:600px;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+<h2 style="text-align:center">Skill Mastery</h2>
+<canvas id="skillChart"></canvas>
+</div>
+
+<script>
+const data = {
+    labels: [
+        "SQL",
+        "Python",
+        "Power BI",
+        "Analytical Thinking",
+        "Adaptability",
+        "Problem Solving"
+    ],
+    datasets: [{
+        label: "Skill Level",
+        data: [5,7,0,5,8,6],
+        fill: true,
+        backgroundColor: "rgba(128,0,255,0.4)",
+        borderColor: "purple",
+        pointBackgroundColor: "purple"
+    }]
+};
+
+const config = {
+    type: 'radar',
+    data: data,
+    options: {
+        scales: {
+            r: {
+                min: 0,
+                max: 10,
+                ticks: {
+                    stepSize: 2
+                }
+            }
+        }
+    }
+};
+
+new Chart(
+    document.getElementById('skillChart'),
+    config
+);
+</script>
+    </section>
 
     <section id="education">
         <h2 class="row-title">Education</h2>
