@@ -8,17 +8,29 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 
-body{
-font-family: Arial;
+*{
 margin:0;
-background:#f5f6fa;
-scroll-behavior:smooth;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
 }
 
-section{
-padding:80px 10%;
+body{
+background:linear-gradient(135deg,#eef2ff,#f8fafc);
+color:#111;
+scroll-behavior:smooth;
+transition:0.3s;
+}
+
+/* DARK MODE */
+
+body.dark{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+color:white;
 }
 
 /* NAVBAR */
@@ -35,73 +47,107 @@ z-index:100;
 
 nav a{
 text-decoration:none;
-padding:10px 20px;
-background:white;
-border-radius:20px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+padding:10px 18px;
+background:rgba(255,255,255,0.8);
+border-radius:25px;
+backdrop-filter:blur(10px);
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 transition:0.3s;
+font-size:14px;
 }
 
 nav a:hover{
-background:#333;
+transform:translateX(5px);
+background:linear-gradient(90deg,#6366f1,#8b5cf6);
 color:white;
 }
 
-/* TITLES */
+/* DARK BUTTON */
+
+.dark-toggle{
+position:fixed;
+top:20px;
+right:20px;
+cursor:pointer;
+padding:10px 15px;
+border-radius:20px;
+background:black;
+color:white;
+}
+
+/* SECTIONS */
+
+section{
+padding:100px 10%;
+}
 
 .title{
 text-align:center;
-font-size:32px;
-margin-bottom:40px;
-font-weight:bold;
+font-size:36px;
+margin-bottom:50px;
+font-weight:700;
+background:linear-gradient(90deg,#6366f1,#ec4899);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 /* ABOUT */
 
-.about-container{
+.about{
 display:flex;
 align-items:center;
 justify-content:space-between;
 gap:40px;
+flex-wrap:wrap;
 }
 
 .about-text{
-width:50%;
+flex:1;
 font-size:18px;
-line-height:1.6;
+line-height:1.7;
 }
 
-.about-img{
-width:300px;
+.about img{
+width:280px;
 border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* SKILL */
+/* SKILLS */
 
-.skill-container{
+.skills{
 display:flex;
 justify-content:space-between;
+flex-wrap:wrap;
 gap:40px;
 }
 
 .skill-list{
-width:45%;
-font-size:18px;
+flex:1;
+}
+
+.skill-list ul{
+list-style:none;
+margin-top:10px;
 }
 
 .skill-list li{
-margin-bottom:10px;
-cursor:pointer;
+padding:6px 0;
 transition:0.3s;
+cursor:pointer;
 }
 
 .skill-list li:hover{
-color:orange;
+transform:translateX(6px);
+background:linear-gradient(90deg,orange,red);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .soft li:hover{
-color:purple;
+background:linear-gradient(90deg,purple,#9333ea);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .chart{
@@ -110,46 +156,54 @@ width:400px;
 
 /* EDUCATION */
 
-.education-item{
-margin-bottom:40px;
+.edu{
+margin-bottom:35px;
 }
 
 /* EXPERIENCE */
 
-.experience-item{
-margin-bottom:40px;
+.exp{
+margin-bottom:35px;
 }
 
 .more{
 display:none;
 }
 
+/* BUTTON */
+
 button{
-padding:8px 18px;
+margin-top:10px;
+padding:8px 16px;
 border:none;
-background:black;
-color:white;
 border-radius:20px;
+background:linear-gradient(90deg,#6366f1,#ec4899);
+color:white;
 cursor:pointer;
 }
 
 /* PROJECT */
 
-.project-grid{
+.projects{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+gap:25px;
 }
 
-.project-card{
-background:white;
+.card{
 padding:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+border-radius:20px;
+background:white;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
-.project-card button{
-margin-top:10px;
+body.dark .card{
+background:#1e293b;
+}
+
+.card:hover{
+transform:translateY(-8px);
 }
 
 </style>
@@ -157,14 +211,18 @@ margin-top:10px;
 
 <body>
 
+<div class="dark-toggle" onclick="darkMode()">🌙 Dark</div>
+
 <!-- NAV -->
 
 <nav>
-<a href="#about">About Me</a>
+
+<a href="#about">About</a>
 <a href="#skills">Skill</a>
 <a href="#education">Education</a>
 <a href="#experience">Experience</a>
 <a href="#project">Project</a>
+
 </nav>
 
 <!-- ABOUT -->
@@ -173,7 +231,7 @@ margin-top:10px;
 
 <div class="title">About Me</div>
 
-<div class="about-container">
+<div class="about">
 
 <div class="about-text">
 
@@ -182,16 +240,16 @@ I am a data professional transitioning from Data Entry into Data Analytics and D
 </p>
 
 <p>
-With hands-on experience in Excel automation, SQL querying, Python data processing, and dashboard visualization, I focus on transforming raw data into meaningful insights.
+With experience in Excel automation, SQL querying, Python data processing, and dashboard visualization, I enjoy transforming raw data into meaningful insights.
 </p>
 
 <p>
-My background in business operations also allows me to understand how data supports decision making and operational efficiency.
+My business background also helps me understand how data supports decision making and operational efficiency.
 </p>
 
 </div>
 
-<img class="about-img" src="photo.jpg">
+<img src="photo.jpg">
 
 </div>
 
@@ -203,11 +261,12 @@ My background in business operations also allows me to understand how data suppo
 
 <div class="title">Skills</div>
 
-<div class="skill-container">
+<div class="skills">
 
 <div class="skill-list">
 
-<b>Hard Skills</b>
+<h3>Hard Skills</h3>
+
 <ul>
 <li>Excel</li>
 <li>SQL</li>
@@ -219,7 +278,8 @@ My background in business operations also allows me to understand how data suppo
 
 <br>
 
-<b>Soft Skills</b>
+<h3>Soft Skills</h3>
+
 <ul class="soft">
 <li>Communication</li>
 <li>Adaptability</li>
@@ -231,7 +291,7 @@ My background in business operations also allows me to understand how data suppo
 
 <div class="chart">
 
-<canvas id="skillChart"></canvas>
+<canvas id="radar"></canvas>
 
 </div>
 
@@ -245,26 +305,22 @@ My background in business operations also allows me to understand how data suppo
 
 <div class="title">Education</div>
 
-<div class="education-item">
+<div class="edu">
 
 <b>STMIK MARDIRA</b> — Jan 2019 – Feb 2022  
 <br>GPA: 3.20 / 4.00  
-<br>Bachelor of Information System (SI)  
+<br>Bachelor of Information System  
 <br>Thesis : Sistem Informasi Keuangan : Kitchen Al - Watani
 
 </div>
 
-<div class="education-item">
+<div class="edu">
 
 <b>RevoU</b> — June 2025 – Present  
 <br>Full Stack Data Analytics
 
 <p>
-Completed an intensive industry-focused data analytics program covering end-to-end data analysis including data cleaning, querying, statistical analysis, visualization, and business insight generation.
-</p>
-
-<p>
-Developed hands-on experience using Python, SQL, Tableau, and Power BI to analyze datasets and deliver actionable insights.
+Completed intensive program covering data cleaning, SQL querying, Python analysis, and dashboard visualization.
 </p>
 
 </div>
@@ -277,20 +333,18 @@ Developed hands-on experience using Python, SQL, Tableau, and Power BI to analyz
 
 <div class="title">Experience</div>
 
-<div class="experience-item">
+<div class="exp">
 
 <b>Owner - Kitchen Al Watani – Cimahi</b>  
 <br>Jan 2019 – Present
 
 <ul>
-<li>Developed automated financial and sales reports using Excel formulas and templates.</li>
+
+<li>Developed automated financial reports using Excel templates.</li>
 
 <div class="more">
-
-<li>Improved pricing accuracy and increased efficiency in tracking income and expenses.</li>
-
-<li>Monitored office supplies and inventory using Excel stock tracking sheets.</li>
-
+<li>Improved pricing accuracy and business reporting efficiency.</li>
+<li>Managed stock monitoring using Excel inventory logs.</li>
 </div>
 
 </ul>
@@ -299,25 +353,18 @@ Developed hands-on experience using Python, SQL, Tableau, and Power BI to analyz
 
 </div>
 
-<div class="experience-item">
+<div class="exp">
 
-<b>Data Entry - PT. Newfemme – Jakarta</b>  
+<b>Data Entry - PT Newfemme – Jakarta</b>  
 <br>March 2022 – August 2023
-
-<p>
-Multi-service tech application supporting healthcare, lifestyle, parenting, beauty, entertainment and shopping services for women.
-</p>
 
 <ul>
 
-<li>Inputted and validated high-volume operational data with 99%+ accuracy.</li>
+<li>Inputted and validated operational data with 99%+ accuracy.</li>
 
 <div class="more">
-
-<li>Collaborated with cross-functional teams using Excel validation tools and standardized templates.</li>
-
-<li>Improved data consistency and reduced processing errors.</li>
-
+<li>Collaborated with teams to standardize Excel data templates.</li>
+<li>Improved data consistency across internal databases.</li>
 </div>
 
 </ul>
@@ -334,38 +381,38 @@ Multi-service tech application supporting healthcare, lifestyle, parenting, beau
 
 <div class="title">Projects</div>
 
-<div class="project-grid">
+<div class="projects">
 
-<div class="project-card">
+<div class="card">
 
 <h3>Sales Dashboard</h3>
 
 <p>
-Analyzed retail sales data using SQL and Power BI to identify revenue trends and top performing products.
+Built Power BI dashboard analyzing sales trends and revenue growth.
 </p>
 
 <button>Documentation</button>
 
 </div>
 
-<div class="project-card">
+<div class="card">
 
 <h3>Customer Segmentation</h3>
 
 <p>
-Performed clustering analysis using Python to segment customers based on purchase behavior.
+Python clustering project to segment customers based on purchasing behavior.
 </p>
 
 <button>Documentation</button>
 
 </div>
 
-<div class="project-card">
+<div class="card">
 
 <h3>Data Cleaning Automation</h3>
 
 <p>
-Built Python scripts to clean and standardize messy datasets before analysis.
+Python scripts for automated data cleaning and preprocessing.
 </p>
 
 <button>Documentation</button>
@@ -378,68 +425,19 @@ Built Python scripts to clean and standardize messy datasets before analysis.
 
 <script>
 
-/* Radar Chart */
+/* DARK MODE */
 
-const ctx = document.getElementById('skillChart');
-
-new Chart(ctx, {
-
-type:'radar',
-
-data:{
-
-labels:[
-'Excel',
-'SQL',
-'Python',
-'Data Cleaning',
-'Power BI',
-'Tableau',
-'Communication',
-'Adaptability',
-'Analytical Thinking',
-'Attention Detail'
-],
-
-datasets:[
-
-{
-label:'Hard Skill',
-data:[4,4,3,4,3,3,0,0,0,0],
-backgroundColor:'rgba(255,165,0,0.2)',
-borderColor:'orange'
-},
-
-{
-label:'Soft Skill',
-data:[0,0,0,0,0,0,4,4,4,5],
-backgroundColor:'rgba(128,0,128,0.2)',
-borderColor:'purple'
+function darkMode(){
+document.body.classList.toggle("dark")
 }
-
-]
-
-},
-
-options:{
-scales:{
-r:{
-beginAtZero:true,
-max:5
-}
-}
-
-}
-
-})
 
 /* MORE BUTTON */
 
 function toggle(btn){
 
-const more = btn.previousElementSibling.querySelector('.more');
+let more = btn.previousElementSibling.querySelector(".more")
 
-if(more.style.display === "block"){
+if(more.style.display==="block"){
 more.style.display="none"
 btn.innerText="More"
 }else{
@@ -448,6 +446,53 @@ btn.innerText="Less"
 }
 
 }
+
+/* RADAR CHART */
+
+const ctx=document.getElementById('radar')
+
+new Chart(ctx,{
+type:'radar',
+data:{
+labels:[
+'Excel','SQL','Python','Data Cleaning','Power BI','Tableau',
+'Communication','Adaptability','Analytical Thinking','Attention Detail'
+],
+datasets:[
+{
+label:'Hard Skills',
+data:[4,4,3,4,3,3,0,0,0,0],
+backgroundColor:'rgba(255,165,0,0.2)',
+borderColor:'orange',
+pointBackgroundColor:'orange'
+},
+{
+label:'Soft Skills',
+data:[0,0,0,0,0,0,4,4,4,5],
+backgroundColor:'rgba(147,51,234,0.2)',
+borderColor:'purple',
+pointBackgroundColor:'purple'
+}
+]
+},
+options:{
+responsive:true,
+plugins:{
+legend:{
+labels:{
+color:getComputedStyle(document.body).color
+}
+}
+},
+scales:{
+r:{
+beginAtZero:true,
+max:5,
+ticks:{display:false}
+}
+}
+}
+})
 
 </script>
 
