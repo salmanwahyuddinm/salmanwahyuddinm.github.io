@@ -11,6 +11,7 @@
             --dark: #0f172a;
             --slate: #64748b;
             --bg-dot: #cbd5e1;
+            --bar-bg: #e2e8f0;
             --transition: all 0.3s ease;
         }
 
@@ -21,7 +22,6 @@
             color: var(--dark);
             line-height: 1.6;
             background-color: #ffffff;
-            /* Simplistic Data Engineer Background: Dot Grid */
             background-image: radial-gradient(var(--bg-dot) 0.8px, transparent 0.8px);
             background-size: 30px 30px;
             scroll-behavior: smooth;
@@ -53,128 +53,57 @@
             background: var(--primary);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
-        section {
-            padding: 100px 10%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .row-title {
-            text-align: center;
-            width: 100%;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
+        section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; }
+        .row-title { text-align: center; width: 100%; font-size: 2.2rem; margin-bottom: 50px; font-weight: 700; }
 
         /* --- Row 1: About Me --- */
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            align-items: center;
-            gap: 60px;
-        }
-
+        .about-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 60px; }
         .about-text { font-size: 1.15rem; color: var(--slate); }
-
-        .about-photo {
-            width: 100%;
-            aspect-ratio: 1/1;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 8px solid white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
+        .about-photo { border-radius: 12px; overflow: hidden; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         .about-photo img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- Row 2: Skills --- */
-        .skills-grid {
+        /* --- Row 2: Skills & Mastery (NEW) --- */
+        .skills-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .skill-card {
+            gap: 50px;
             background: white;
-            padding: 35px;
-            border-radius: 12px;
+            padding: 40px;
+            border-radius: 16px;
             border: 1px solid #e2e8f0;
         }
 
-        .skill-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-
         .skill-tag {
+            display: inline-block;
             background: #f1f5f9;
             padding: 8px 16px;
             border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-            cursor: default;
-        }
-
-        .hard-skill:hover { background: var(--primary); color: white; transform: scale(1.05); }
-        .soft-skill:hover { background: var(--dark); color: white; transform: scale(1.05); }
-
-        /* --- Row 3 & 4: Timeline & More Button --- */
-        .exp-box {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid var(--primary);
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-
-        .exp-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 700; }
-        .exp-date { color: var(--slate); font-weight: 400; }
-
-        .hidden-exp { display: none; }
-        
-        .btn-more {
-            align-self: center;
-            padding: 12px 30px;
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 6px;
+            font-size: 0.85rem;
+            margin: 4px;
             font-weight: 600;
-            cursor: pointer;
             transition: var(--transition);
-            margin-top: 20px;
         }
+        .tag-hard:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+        .tag-soft:hover { background: var(--dark); color: white; transform: translateY(-3px); }
 
-        .btn-more:hover { background: var(--primary); color: white; }
+        .mastery-item { margin-bottom: 20px; }
+        .mastery-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        .mastery-bar-outer { height: 10px; background: var(--bar-bg); border-radius: 10px; overflow: hidden; }
+        .mastery-bar-inner { height: 100%; background: var(--primary); border-radius: 10px; transition: width 1.5s ease-in-out; }
+
+        /* --- Rows 3 & 4: Education & Experience --- */
+        .exp-box { background: white; padding: 30px; border-radius: 12px; border-left: 5px solid var(--primary); margin-bottom: 25px; border: 1px solid #e2e8f0; border-left-width: 5px; }
+        .exp-header { display: flex; justify-content: space-between; font-weight: 700; }
+        .hidden-exp { display: none; }
+        .btn-more { align-self: center; padding: 12px 30px; border: 2px solid var(--primary); color: var(--primary); background: transparent; font-weight: 600; cursor: pointer; border-radius: 6px; }
 
         /* --- Row 5: Project --- */
-        .project-card {
-            background: var(--dark);
-            color: white;
-            padding: 50px;
-            border-radius: 16px;
-        }
+        .project-card { background: var(--dark); color: white; padding: 40px; border-radius: 16px; }
+        .btn-doc { display: inline-block; margin-top: 20px; padding: 10px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; }
 
-        .btn-doc {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 25px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-        }
-
-        @media (max-width: 900px) {
-            .about-layout, .skills-grid { grid-template-columns: 1fr; }
-            nav { width: 100%; right: 0; top: 0; padding: 10px; background: white; justify-content: center; }
-        }
+        @media (max-width: 900px) { .about-layout, .skills-layout { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -191,7 +120,7 @@
         <h2 class="row-title">About Me</h2>
         <div class="about-layout">
             <div class="about-text">
-                <p>I am a Data Professional with a Bachelor's in Information Systems. My expertise lies in bridging the gap between raw data entry and high-level analytical insights. I specialize in building automated financial tools and extracting actionable intelligence from complex datasets to drive business growth.</p>
+                <p>I am a Data Professional focused on Information Systems. I specialize in turning raw data into streamlined financial reports and actionable intelligence.</p>
             </div>
             <div class="about-photo">
                 <img src="YOUR_PHOTO_URL.jpg" alt="Profile Photo">
@@ -201,199 +130,112 @@
 
     <section id="skills">
         <h2 class="row-title">Skill</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Hard Skill</h3>
-                <div class="skill-list">
-                    <span class="skill-tag hard-skill">Excel</span>
-                    <span class="skill-tag hard-skill">SQL</span>
-                    <span class="skill-tag hard-skill">Python</span>
-                    <span class="skill-tag hard-skill">Data Cleaning</span>
-                    <span class="skill-tag hard-skill">Power BI</span>
-                    <span class="skill-tag hard-skill">Tableau</span>
+        <div class="skills-layout">
+            <div>
+                <h3 style="margin-bottom: 20px;">Expertise Areas</h3>
+                <div style="margin-bottom: 30px;">
+                    <h4 style="color: var(--primary); font-size: 0.9rem; margin-bottom: 10px;">HARD SKILL</h4>
+                    <span class="skill-tag tag-hard">Excel</span>
+                    <span class="skill-tag tag-hard">SQL</span>
+                    <span class="skill-tag tag-hard">Python</span>
+                    <span class="skill-tag tag-hard">Data Cleaning</span>
+                    <span class="skill-tag tag-hard">Power BI</span>
+                    <span class="skill-tag tag-hard">Tableau</span>
+                </div>
+                <div>
+                    <h4 style="color: var(--dark); font-size: 0.9rem; margin-bottom: 10px;">SOFT SKILL</h4>
+                    <span class="skill-tag tag-soft">Communication</span>
+                    <span class="skill-tag tag-soft">Adaptability</span>
+                    <span class="skill-tag tag-soft">Analytical Thinking</span>
+                    <span class="skill-tag tag-soft">Attention to Detail</span>
                 </div>
             </div>
-            <div class="skill-card">
-                <h3>Soft Skill</h3>
-                <div class="skill-list">
-                    <span class="skill-tag soft-skill">Communication</span>
-                    <span class="skill-tag soft-skill">Adaptability</span>
-                    <span class="skill-tag soft-skill">Analytical Thinking</span>
-                    <span class="skill-tag soft-skill">Strong attention to detail</span>
+
+            <div>
+                <h3 style="margin-bottom: 20px;">Skill Mastery</h3>
+                
+                <div class="mastery-item">
+                    <div class="mastery-info"><span>SQL</span><span>5/10</span></div>
+                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 50%;"></div></div>
+                </div>
+
+                <div class="mastery-item">
+                    <div class="mastery-info"><span>Python</span><span>7/10</span></div>
+                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 70%;"></div></div>
+                </div>
+
+                <div class="mastery-item">
+                    <div class="mastery-info"><span>Power BI</span><span>6/10</span></div>
+                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 60%;"></div></div>
+                </div>
+
+                <div class="mastery-item">
+                    <div class="mastery-info"><span>Analytical Thinking</span><span>5/10</span></div>
+                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 50%;"></div></div>
+                </div>
+
+                <div class="mastery-item">
+                    <div class="mastery-info"><span>Adaptability</span><span>8/10</span></div>
+                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="mastery-item">
+                    <div class="mastery-info"><span>Problem Solving</span><span>6/10</span></div>
+                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 60%;"></div></div>
                 </div>
             </div>
         </div>
-    </section>
-    
-<section>
-    <title>Skill Mastery Radar Chart</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        body{
-            font-family: Arial;
-            background:#f5f5f5;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-        }
-        .container{
-            width:600px;
-            background:white;
-            padding:20px;
-            border-radius:10px;
-            box-shadow:0 0 10px rgba(0,0,0,0.1);
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="container">
-<h2 style="text-align:center">Skill Mastery</h2>
-<canvas id="skillChart"></canvas>
-</div>
-
-<script>
-const data = {
-    labels: [
-        "SQL",
-        "Python",
-        "Power BI",
-        "Analytical Thinking",
-        "Adaptability",
-        "Problem Solving"
-    ],
-    datasets: [{
-        label: "Skill Level",
-        data: [5,7,0,5,8,6],
-        fill: true,
-        backgroundColor: "rgba(128,0,255,0.4)",
-        borderColor: "purple",
-        pointBackgroundColor: "purple"
-    }]
-};
-
-const config = {
-    type: 'radar',
-    data: data,
-    options: {
-        scales: {
-            r: {
-                min: 0,
-                max: 10,
-                ticks: {
-                    stepSize: 2
-                }
-            }
-        }
-    }
-};
-
-new Chart(
-    document.getElementById('skillChart'),
-    config
-);
-</script>
     </section>
 
     <section id="education">
         <h2 class="row-title">Education</h2>
         <div class="exp-box">
-            <div class="exp-header">
-                <span>STMIK MARDIRA</span>
-                <span class="exp-date">Jan, 2019 – Feb, 2022</span>
-            </div>
+            <div class="exp-header"><span>STMIK MARDIRA</span><span style="color: var(--slate); font-weight:400;">Jan, 2019 – Feb, 2022</span></div>
             <p><strong>Bachelor of Information System (SI)</strong> | GPA: 3.20 / 4.00</p>
-            <p style="margin-top: 10px; font-style: italic;">Thesis: Sistem Informasi Keuangan : Kitchen Al - Watani</p>
+            <p>Thesis: Sistem Informasi Keuangan : Kitchen Al - Watani</p>
         </div>
         <div class="exp-box">
-            <div class="exp-header">
-                <span>RevoU</span>
-                <span class="exp-date">June, 2025 – Present</span>
-            </div>
+            <div class="exp-header"><span>RevoU</span><span style="color: var(--slate); font-weight:400;">June, 2025 – Present</span></div>
             <p><strong>Full Stack Data Analytics</strong></p>
-            <ul style="margin: 10px 0 0 20px; font-size: 0.95rem; color: var(--slate);">
-                <li>Completed an intensive industry-focused data analytics program covering end-to-end data analysis, including data cleaning, querying, statistical analysis, and data visualization.</li>
-                <li>Developed hands-on experience using Python, SQL, Tableau, and Power BI to analyze datasets and build dashboards.</li>
-            </ul>
+            <p style="font-size: 0.9rem; color: var(--slate);">Intensive program covering data cleaning, SQL querying, and business insight generation.</p>
         </div>
     </section>
 
     <section id="experience">
         <h2 class="row-title">Experience</h2>
-        
         <div class="exp-box">
-            <div class="exp-header">
-                <span>Owner - Kitchen Al - Watani – Cimahi</span>
-                <span class="exp-date">Jan, 2019 – Present</span>
-            </div>
-            <ul style="margin: 10px 0 0 20px; color: var(--slate);">
-                <li>Developed automated financial and sales reports from manual written records using Microsoft Excel (formulas, spreadsheets, price calculation templates), improving pricing accuracy and increasing time efficiency in income and expense tracking.</li>
-                <li>Conducted daily monitoring of office supplies and sales inventory using stock tracking sheets and Excel inventory logs, ensuring stock availability and supporting smooth business operations without disruption.</li>
+            <div class="exp-header"><span>Owner - Kitchen Al - Watani</span><span style="color: var(--slate); font-weight:400;">Jan, 2019 – Present</span></div>
+            <ul style="margin-left: 20px; color: var(--slate); margin-top: 10px;">
+                <li>Developed automated Excel financial reports, improving pricing accuracy and tracking efficiency.</li>
+                <li>Monitored inventory logs to ensure smooth daily operations without disruption.</li>
             </ul>
         </div>
 
         <div id="more-experience" class="hidden-exp">
             <div class="exp-box">
-                <div class="exp-header">
-                    <span>Data entry - PT. Newfemme – DKI Jakarta</span>
-                    <span class="exp-date">March, 2022 – August, 2023</span>
-                </div>
-                <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 10px;">The multi-service tech application that understands women the most. Newfemme embraces many aspects of personal and commercial life within a single app.</p>
-                <ul style="margin-left: 20px; color: var(--slate);">
-                    <li>Inputted and validated high-volume operational data into company databases using Microsoft Excel and internal SaaS systems, ensuring 99%+ data accuracy and supporting reliable business reporting.</li>
-                    <li>Collaborated with cross-functional teams to define data entry requirements using Excel validation tools and standardized data templates, improving data consistency and reducing processing error.</li>
-                </ul>
+                <div class="exp-header"><span>Data entry - PT. Newfemme</span><span style="color: var(--slate); font-weight:400;">March, 2022 – Aug, 2023</span></div>
+                <p style="margin-top: 10px;">Maintained 99%+ accuracy in high-volume operational data entry using Excel and SaaS systems.</p>
             </div>
         </div>
-
         <button class="btn-more" onclick="toggleExp()" id="expBtn">More Experience</button>
     </section>
 
     <section id="project">
         <h2 class="row-title">Project</h2>
         <div class="project-card">
-            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Mexico Toys Sales - Top Category Profitability</h3>
-            <p>Managed an end-to-end data analysis project to optimize toy category profitability[cite: 1]. Addressed heavy revenue dependence on specific SKUs and handled a 55% seasonal revenue decline observed between July and October[cite: 6, 38].</p>
-            
-            <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div>
-                    <h4 style="color: var(--primary);">Key Insights</h4>
-                    <ul style="margin-top:10px; font-size: 0.9rem; color: #cbd5e1;">
-                        <li>Toys category dominates with 35.26% revenue share[cite: 76, 94].</li>
-                        <li>Lego Bricks identified as the primary revenue winner at $2.39M[cite: 65].</li>
-                        <li>Top 3 products represent approximately 70% of total revenue[cite: 66].</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style="color: var(--primary);">Strategic Objectives</h4>
-                    <ul style="margin-top:10px; font-size: 0.9rem; color: #cbd5e1;">
-                        <li>Achieve 5-10% revenue growth in the next quarter[cite: 10, 17].</li>
-                        <li>Implement seasonal inventory reallocation for high-margin SKUs[cite: 12].</li>
-                        <li>Stabilize revenue through aggressive promotions during slow periods[cite: 44, 178].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <a href="#" class="btn-doc">View Documentation</a>
+            <h3>Mexico Toys Sales - Profitability Analysis</h3>
+            <p style="margin: 15px 0;">Analyzed a 55% revenue decline and identified that 70% of revenue is driven by just three products (Lego Bricks: $2.39M). Proposed strategies for a 5-10% revenue increase.</p>
+            <a href="#" class="btn-doc">Documentation</a>
         </div>
     </section>
 
     <script>
         function toggleExp() {
-            var moreExp = document.getElementById("more-experience");
-            var btnText = document.getElementById("expBtn");
-
-            if (moreExp.style.display === "block") {
-                moreExp.style.display = "none";
-                btnText.innerHTML = "More Experience";
-            } else {
-                moreExp.style.display = "block";
-                btnText.innerHTML = "Show Less";
-            }
+            var x = document.getElementById("more-experience");
+            var b = document.getElementById("expBtn");
+            if (x.style.display === "block") { x.style.display = "none"; b.innerHTML = "More Experience"; }
+            else { x.style.display = "block"; b.innerHTML = "Show Less"; }
         }
     </script>
-
 </body>
 </html>
