@@ -234,31 +234,66 @@ I am motivated to continuously learn and grow in the data field, especially in b
         </div>
     </section>
 
-    <section id="skills">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-container">
-            <div class="skill-card">
-                <h3>Hard Skills</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag">Excel</li>
-                    <li class="skill-tag">SQL</li>
-                    <li class="skill-tag">Python</li>
-                    <li class="skill-tag">Data Cleaning</li>
-                    <li class="skill-tag">Power BI</li>
-                    <li class="skill-tag">Tableau</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h3>Soft Skills</h3>
-                <ul class="skill-list">
-                    <li class="skill-tag">Communication</li>
-                    <li class="skill-tag">Adaptability</li>
-                    <li class="skill-tag">Analytical Thinking</li>
-                    <li class="skill-tag">Strong attention to detail</li>
-                </ul>
+<style>
+    /* Enhanced Skill Hover Effects */
+.skill-tag {
+    display: inline-block;
+    background: var(--light);
+    color: var(--dark);
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+    border: 1px solid transparent;
+}
+
+/* Hard Skills Hover: Turns Blue */
+.hard-skill:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    border-color: #1d4ed8;
+}
+
+/* Soft Skills Hover: Turns Dark/Slate */
+.soft-skill:hover {
+    background-color: var(--dark);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(30, 41, 59, 0.2);
+}
+    </style>
+    
+   <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+        <div class="skill-card">
+            <h3>Hard Skills</h3>
+            <div class="skill-list">
+                <span class="skill-tag hard-skill">Excel</span>
+                <span class="skill-tag hard-skill">SQL</span>
+                <span class="skill-tag hard-skill">Python</span>
+                <span class="skill-tag hard-skill">Data Cleaning</span>
+                <span class="skill-tag hard-skill">Power BI</span>
+                <span class="skill-tag hard-skill">Tableau</span>
             </div>
         </div>
-    </section>
+        
+        <div class="skill-card">
+            <h3>Soft Skills</h3>
+            <div class="skill-list">
+                <span class="skill-tag soft-skill">Communication</span>
+                <span class="skill-tag soft-skill">Adaptability</span>
+                <span class="skill-tag soft-skill">Analytical Thinking</span>
+                <span class="skill-tag soft-skill">Strong attention to detail</span>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section id="education">
         <h2 class="section-title">Education</h2>
