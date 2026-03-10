@@ -1,241 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Data Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
-            --slate: #64748b;
-            --bg-dot: #cbd5e1;
-            --bar-bg: #e2e8f0;
-            --transition: all 0.3s ease;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<title>Data Portfolio</title>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-            background-color: #ffffff;
-            background-image: radial-gradient(var(--bg-dot) 0.8px, transparent 0.8px);
-            background-size: 30px 30px;
-            scroll-behavior: smooth;
-        }
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        /* --- Navigation --- */
-        nav {
-            position: fixed;
-            top: 20px;
-            right: 40px;
-            z-index: 1000;
-            display: flex;
-            gap: 12px;
-        }
+<style>
 
-        nav a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            transition: var(--transition);
-        }
+body{
+font-family: Arial;
+margin:0;
+background:#f5f6fa;
+scroll-behavior:smooth;
+}
 
-        nav a:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
+section{
+padding:80px 10%;
+}
 
-        section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; }
-        .row-title { text-align: center; width: 100%; font-size: 2.2rem; margin-bottom: 50px; font-weight: 700; }
+/* NAVBAR */
 
-        /* --- Row 1: About Me --- */
-        .about-layout { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 60px; }
-        .about-text { font-size: 1.15rem; color: var(--slate); }
-        .about-photo { border-radius: 12px; overflow: hidden; border: 8px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+nav{
+position:fixed;
+top:20px;
+left:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+z-index:100;
+}
 
-        /* --- Row 2: Skills & Mastery (NEW) --- */
-        .skills-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-        }
+nav a{
+text-decoration:none;
+padding:10px 20px;
+background:white;
+border-radius:20px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+transition:0.3s;
+}
 
-        .skill-tag {
-            display: inline-block;
-            background: #f1f5f9;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            margin: 4px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        .tag-hard:hover { background: var(--primary); color: white; transform: translateY(-3px); }
-        .tag-soft:hover { background: var(--dark); color: white; transform: translateY(-3px); }
+nav a:hover{
+background:#333;
+color:white;
+}
 
-        .mastery-item { margin-bottom: 20px; }
-        .mastery-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
-        .mastery-bar-outer { height: 10px; background: var(--bar-bg); border-radius: 10px; overflow: hidden; }
-        .mastery-bar-inner { height: 100%; background: var(--primary); border-radius: 10px; transition: width 1.5s ease-in-out; }
+/* TITLES */
 
-        /* --- Rows 3 & 4: Education & Experience --- */
-        .exp-box { background: white; padding: 30px; border-radius: 12px; border-left: 5px solid var(--primary); margin-bottom: 25px; border: 1px solid #e2e8f0; border-left-width: 5px; }
-        .exp-header { display: flex; justify-content: space-between; font-weight: 700; }
-        .hidden-exp { display: none; }
-        .btn-more { align-self: center; padding: 12px 30px; border: 2px solid var(--primary); color: var(--primary); background: transparent; font-weight: 600; cursor: pointer; border-radius: 6px; }
+.title{
+text-align:center;
+font-size:32px;
+margin-bottom:40px;
+font-weight:bold;
+}
 
-        /* --- Row 5: Project --- */
-        .project-card { background: var(--dark); color: white; padding: 40px; border-radius: 16px; }
-        .btn-doc { display: inline-block; margin-top: 20px; padding: 10px 24px; background: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; }
+/* ABOUT */
 
-        @media (max-width: 900px) { .about-layout, .skills-layout { grid-template-columns: 1fr; } }
-    </style>
+.about-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+}
+
+.about-text{
+width:50%;
+font-size:18px;
+line-height:1.6;
+}
+
+.about-img{
+width:300px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* SKILL */
+
+.skill-container{
+display:flex;
+justify-content:space-between;
+gap:40px;
+}
+
+.skill-list{
+width:45%;
+font-size:18px;
+}
+
+.skill-list li{
+margin-bottom:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.skill-list li:hover{
+color:orange;
+}
+
+.soft li:hover{
+color:purple;
+}
+
+.chart{
+width:400px;
+}
+
+/* EDUCATION */
+
+.education-item{
+margin-bottom:40px;
+}
+
+/* EXPERIENCE */
+
+.experience-item{
+margin-bottom:40px;
+}
+
+.more{
+display:none;
+}
+
+button{
+padding:8px 18px;
+border:none;
+background:black;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* PROJECT */
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.project-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.project-card button{
+margin-top:10px;
+}
+
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#skills">Skill</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#project">Project</a>
-    </nav>
+<!-- NAV -->
 
-    <section id="about">
-        <h2 class="row-title">About Me</h2>
-        <div class="about-layout">
-            <div class="about-text">
-                <p>I am a Data Professional focused on Information Systems. I specialize in turning raw data into streamlined financial reports and actionable intelligence.</p>
-            </div>
-            <div class="about-photo">
-                <img src="YOUR_PHOTO_URL.jpg" alt="Profile Photo">
-            </div>
-        </div>
-    </section>
+<nav>
+<a href="#about">About Me</a>
+<a href="#skills">Skill</a>
+<a href="#education">Education</a>
+<a href="#experience">Experience</a>
+<a href="#project">Project</a>
+</nav>
 
-    <section id="skills">
-        <h2 class="row-title">Skill</h2>
-        <div class="skills-layout">
-            <div>
-                <h3 style="margin-bottom: 20px;">Expertise Areas</h3>
-                <div style="margin-bottom: 30px;">
-                    <h4 style="color: var(--primary); font-size: 0.9rem; margin-bottom: 10px;">HARD SKILL</h4>
-                    <span class="skill-tag tag-hard">Excel</span>
-                    <span class="skill-tag tag-hard">SQL</span>
-                    <span class="skill-tag tag-hard">Python</span>
-                    <span class="skill-tag tag-hard">Data Cleaning</span>
-                    <span class="skill-tag tag-hard">Power BI</span>
-                    <span class="skill-tag tag-hard">Tableau</span>
-                </div>
-                <div>
-                    <h4 style="color: var(--dark); font-size: 0.9rem; margin-bottom: 10px;">SOFT SKILL</h4>
-                    <span class="skill-tag tag-soft">Communication</span>
-                    <span class="skill-tag tag-soft">Adaptability</span>
-                    <span class="skill-tag tag-soft">Analytical Thinking</span>
-                    <span class="skill-tag tag-soft">Attention to Detail</span>
-                </div>
-            </div>
+<!-- ABOUT -->
 
-            <div>
-                <h3 style="margin-bottom: 20px;">Skill Mastery</h3>
-                
-                <div class="mastery-item">
-                    <div class="mastery-info"><span>SQL</span><span>5/10</span></div>
-                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 50%;"></div></div>
-                </div>
+<section id="about">
 
-                <div class="mastery-item">
-                    <div class="mastery-info"><span>Python</span><span>7/10</span></div>
-                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 70%;"></div></div>
-                </div>
+<div class="title">About Me</div>
 
-                <div class="mastery-item">
-                    <div class="mastery-info"><span>Power BI</span><span>6/10</span></div>
-                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 60%;"></div></div>
-                </div>
+<div class="about-container">
 
-                <div class="mastery-item">
-                    <div class="mastery-info"><span>Analytical Thinking</span><span>5/10</span></div>
-                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 50%;"></div></div>
-                </div>
+<div class="about-text">
 
-                <div class="mastery-item">
-                    <div class="mastery-info"><span>Adaptability</span><span>8/10</span></div>
-                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 80%;"></div></div>
-                </div>
+<p>
+I am a data professional transitioning from Data Entry into Data Analytics and Data Engineering.
+</p>
 
-                <div class="mastery-item">
-                    <div class="mastery-info"><span>Problem Solving</span><span>6/10</span></div>
-                    <div class="mastery-bar-outer"><div class="mastery-bar-inner" style="width: 60%;"></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
+<p>
+With hands-on experience in Excel automation, SQL querying, Python data processing, and dashboard visualization, I focus on transforming raw data into meaningful insights.
+</p>
 
-    <section id="education">
-        <h2 class="row-title">Education</h2>
-        <div class="exp-box">
-            <div class="exp-header"><span>STMIK MARDIRA</span><span style="color: var(--slate); font-weight:400;">Jan, 2019 – Feb, 2022</span></div>
-            <p><strong>Bachelor of Information System (SI)</strong> | GPA: 3.20 / 4.00</p>
-            <p>Thesis: Sistem Informasi Keuangan : Kitchen Al - Watani</p>
-        </div>
-        <div class="exp-box">
-            <div class="exp-header"><span>RevoU</span><span style="color: var(--slate); font-weight:400;">June, 2025 – Present</span></div>
-            <p><strong>Full Stack Data Analytics</strong></p>
-            <p style="font-size: 0.9rem; color: var(--slate);">Intensive program covering data cleaning, SQL querying, and business insight generation.</p>
-        </div>
-    </section>
+<p>
+My background in business operations also allows me to understand how data supports decision making and operational efficiency.
+</p>
 
-    <section id="experience">
-        <h2 class="row-title">Experience</h2>
-        <div class="exp-box">
-            <div class="exp-header"><span>Owner - Kitchen Al - Watani</span><span style="color: var(--slate); font-weight:400;">Jan, 2019 – Present</span></div>
-            <ul style="margin-left: 20px; color: var(--slate); margin-top: 10px;">
-                <li>Developed automated Excel financial reports, improving pricing accuracy and tracking efficiency.</li>
-                <li>Monitored inventory logs to ensure smooth daily operations without disruption.</li>
-            </ul>
-        </div>
+</div>
 
-        <div id="more-experience" class="hidden-exp">
-            <div class="exp-box">
-                <div class="exp-header"><span>Data entry - PT. Newfemme</span><span style="color: var(--slate); font-weight:400;">March, 2022 – Aug, 2023</span></div>
-                <p style="margin-top: 10px;">Maintained 99%+ accuracy in high-volume operational data entry using Excel and SaaS systems.</p>
-            </div>
-        </div>
-        <button class="btn-more" onclick="toggleExp()" id="expBtn">More Experience</button>
-    </section>
+<img class="about-img" src="photo.jpg">
 
-    <section id="project">
-        <h2 class="row-title">Project</h2>
-        <div class="project-card">
-            <h3>Mexico Toys Sales - Profitability Analysis</h3>
-            <p style="margin: 15px 0;">Analyzed a 55% revenue decline and identified that 70% of revenue is driven by just three products (Lego Bricks: $2.39M). Proposed strategies for a 5-10% revenue increase.</p>
-            <a href="#" class="btn-doc">Documentation</a>
-        </div>
-    </section>
+</div>
 
-    <script>
-        function toggleExp() {
-            var x = document.getElementById("more-experience");
-            var b = document.getElementById("expBtn");
-            if (x.style.display === "block") { x.style.display = "none"; b.innerHTML = "More Experience"; }
-            else { x.style.display = "block"; b.innerHTML = "Show Less"; }
-        }
-    </script>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="title">Skills</div>
+
+<div class="skill-container">
+
+<div class="skill-list">
+
+<b>Hard Skills</b>
+<ul>
+<li>Excel</li>
+<li>SQL</li>
+<li>Python</li>
+<li>Data Cleaning</li>
+<li>Power BI</li>
+<li>Tableau</li>
+</ul>
+
+<br>
+
+<b>Soft Skills</b>
+<ul class="soft">
+<li>Communication</li>
+<li>Adaptability</li>
+<li>Analytical Thinking</li>
+<li>Strong attention to detail</li>
+</ul>
+
+</div>
+
+<div class="chart">
+
+<canvas id="skillChart"></canvas>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<div class="title">Education</div>
+
+<div class="education-item">
+
+<b>STMIK MARDIRA</b> — Jan 2019 – Feb 2022  
+<br>GPA: 3.20 / 4.00  
+<br>Bachelor of Information System (SI)  
+<br>Thesis : Sistem Informasi Keuangan : Kitchen Al - Watani
+
+</div>
+
+<div class="education-item">
+
+<b>RevoU</b> — June 2025 – Present  
+<br>Full Stack Data Analytics
+
+<p>
+Completed an intensive industry-focused data analytics program covering end-to-end data analysis including data cleaning, querying, statistical analysis, visualization, and business insight generation.
+</p>
+
+<p>
+Developed hands-on experience using Python, SQL, Tableau, and Power BI to analyze datasets and deliver actionable insights.
+</p>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+<div class="title">Experience</div>
+
+<div class="experience-item">
+
+<b>Owner - Kitchen Al Watani – Cimahi</b>  
+<br>Jan 2019 – Present
+
+<ul>
+<li>Developed automated financial and sales reports using Excel formulas and templates.</li>
+
+<div class="more">
+
+<li>Improved pricing accuracy and increased efficiency in tracking income and expenses.</li>
+
+<li>Monitored office supplies and inventory using Excel stock tracking sheets.</li>
+
+</div>
+
+</ul>
+
+<button onclick="toggle(this)">More</button>
+
+</div>
+
+<div class="experience-item">
+
+<b>Data Entry - PT. Newfemme – Jakarta</b>  
+<br>March 2022 – August 2023
+
+<p>
+Multi-service tech application supporting healthcare, lifestyle, parenting, beauty, entertainment and shopping services for women.
+</p>
+
+<ul>
+
+<li>Inputted and validated high-volume operational data with 99%+ accuracy.</li>
+
+<div class="more">
+
+<li>Collaborated with cross-functional teams using Excel validation tools and standardized templates.</li>
+
+<li>Improved data consistency and reduced processing errors.</li>
+
+</div>
+
+</ul>
+
+<button onclick="toggle(this)">More</button>
+
+</div>
+
+</section>
+
+<!-- PROJECT -->
+
+<section id="project">
+
+<div class="title">Projects</div>
+
+<div class="project-grid">
+
+<div class="project-card">
+
+<h3>Sales Dashboard</h3>
+
+<p>
+Analyzed retail sales data using SQL and Power BI to identify revenue trends and top performing products.
+</p>
+
+<button>Documentation</button>
+
+</div>
+
+<div class="project-card">
+
+<h3>Customer Segmentation</h3>
+
+<p>
+Performed clustering analysis using Python to segment customers based on purchase behavior.
+</p>
+
+<button>Documentation</button>
+
+</div>
+
+<div class="project-card">
+
+<h3>Data Cleaning Automation</h3>
+
+<p>
+Built Python scripts to clean and standardize messy datasets before analysis.
+</p>
+
+<button>Documentation</button>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+/* Radar Chart */
+
+const ctx = document.getElementById('skillChart');
+
+new Chart(ctx, {
+
+type:'radar',
+
+data:{
+
+labels:[
+'Excel',
+'SQL',
+'Python',
+'Data Cleaning',
+'Power BI',
+'Tableau',
+'Communication',
+'Adaptability',
+'Analytical Thinking',
+'Attention Detail'
+],
+
+datasets:[
+
+{
+label:'Hard Skill',
+data:[4,4,3,4,3,3,0,0,0,0],
+backgroundColor:'rgba(255,165,0,0.2)',
+borderColor:'orange'
+},
+
+{
+label:'Soft Skill',
+data:[0,0,0,0,0,0,4,4,4,5],
+backgroundColor:'rgba(128,0,128,0.2)',
+borderColor:'purple'
+}
+
+]
+
+},
+
+options:{
+scales:{
+r:{
+beginAtZero:true,
+max:5
+}
+}
+
+}
+
+})
+
+/* MORE BUTTON */
+
+function toggle(btn){
+
+const more = btn.previousElementSibling.querySelector('.more');
+
+if(more.style.display === "block"){
+more.style.display="none"
+btn.innerText="More"
+}else{
+more.style.display="block"
+btn.innerText="Less"
+}
+
+}
+
+</script>
+
 </body>
 </html>
