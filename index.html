@@ -26,13 +26,141 @@ scroll-behavior:smooth;
 transition:0.3s;
 }
 
-/* DARK MODE */
+/* Container */  
 
-body.dark{
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
+.skills-container{
+
+display:flex;
+flex-direction:column;
+gap:50px;
+
+max-width:900px;
+margin:auto;
+
 }
 
+.skill-chart{
+
+background:white;
+padding:25px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+body.dark .skill-chart{
+background:#1e293b;
+}
+
+.skill-chart h3{
+margin-bottom:20px;
+}
+
+/* HARD SKILLS BAR */
+
+const hardCtx = document.getElementById('hardSkills');
+
+new Chart(hardCtx,{
+
+type:'bar',
+
+data:{
+
+labels:[
+'Excel',
+'SQL',
+'Python',
+'Data Cleaning',
+'Power BI',
+'Tableau'
+],
+
+datasets:[{
+
+label:'Skill Level',
+
+data:[4,4,3,4,3,3],
+
+backgroundColor:[
+'#f97316',
+'#fb923c',
+'#fdba74',
+'#f59e0b',
+'#fbbf24',
+'#fde68a'
+]
+
+}]
+
+},
+
+options:{
+
+indexAxis:'y',
+
+scales:{
+x:{
+beginAtZero:true,
+max:5
+}
+}
+
+}
+
+});
+
+
+/* SOFT SKILLS BAR */
+
+const softCtx = document.getElementById('softSkills');
+
+new Chart(softCtx,{
+
+type:'bar',
+
+data:{
+
+labels:[
+'Communication',
+'Adaptability',
+'Analytical Thinking',
+'Attention to Detail'
+],
+
+datasets:[{
+
+label:'Skill Level',
+
+data:[4,4,4,5],
+
+backgroundColor:[
+'#7c3aed',
+'#8b5cf6',
+'#a78bfa',
+'#c4b5fd'
+]
+
+}]
+
+},
+
+options:{
+
+indexAxis:'y',
+
+scales:{
+x:{
+beginAtZero:true,
+max:5
+}
+}
+
+}
+
+});
+    
 /* NAVBAR */
 
 nav{
@@ -298,27 +426,21 @@ transform:translateY(-8px);
 
 <div class="title">Skills</div>
 
-<div class="skills">
+<div class="skills-container">
 
-<div class="skill-list">
-
+<div class="skill-chart">
 <h3>Hard Skills</h3>
+<canvas id="hardSkills"></canvas>
+</div>
 
-<ul>
-<li>Excel</li> <li>SQL</li> <li>Python</li>
-<li>Data Cleaning</li> <li>Power BI</li> <li>Tableau</li>
-</ul>
-
-<br>
-
+<div class="skill-chart">
 <h3>Soft Skills</h3>
-
-<ul class="soft">
-<li>Communication</li> <li>Adaptability</li> <li>Analytical Thinking</li>
-<li>Strong attention to detail</li>
-</ul>
+<canvas id="softSkills"></canvas>
+</div>
 
 </div>
+
+</section>
 
 <div class="chart">
 
