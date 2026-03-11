@@ -21,16 +21,14 @@
         </div>
     </header>
 
-    <div class="main-wrapper">
-        <nav class="sidebar">
-            <ul>
-                <li><a href="#about"><i class="fas fa-user"></i><span>About</span></a></li>
-                <li><a href="#education"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
-                <li><a href="#skills"><i class="fas fa-tools"></i><span>Skills</span></a></li>
-                <li><a href="#experience"><i class="fas fa-briefcase"></i><span>Experience</span></a></li>
-                <li><a href="#projects"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
-                <li><a href="#contact"><i class="fas fa-paper-plane"></i><span>Contact</span></a></li>
-            </ul>
+    <div class="main-layout">
+        <nav class="side-nav">
+            <a href="#about" title="About"><i class="fas fa-user"></i></a>
+            <a href="#education" title="Education"><i class="fas fa-graduation-cap"></i></a>
+            <a href="#skill" title="Skills"><i class="fas fa-tools"></i></a>
+            <a href="#experience" title="Experience"><i class="fas fa-briefcase"></i></a>
+            <a href="#projects" title="Projects"><i class="fas fa-lightbulb"></i></a>
+            <a href="#contact" title="Contact"><i class="fas fa-paper-plane"></i></a>
         </nav>
 
         <main class="content">
@@ -39,79 +37,83 @@
                     <div class="about-text">
                         <h2>About Me</h2>
                         <p>I am a data enthusiast with approximately one year of experience working as a Data Entry specialist. This experience helped me develop strong attention to detail and a solid understanding of how important data quality and organization are within a system.</p>
-                        <p>To deepen my knowledge, I completed a Full Data Analytics course. Although I learned analytics, I find myself more interested in <strong>Data Engineering</strong>, as I enjoy building the foundation that supports data analysis.</p>
+                        <p>To deepen my knowledge in the data field, I completed a Full Data Analytics course, where I gained a broader understanding of data processing and analysis.</p>
+                        <p>Although I learned data analytics, I find myself more interested in <strong>Data Engineering</strong>, as I enjoy working on the system and backend side of data.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="assets/profile.jpg" alt="Salman Wahyuddin M">
+                    <div class="about-img">
+                        <img src="assets/profile.jpg" alt="Salman Profile">
                     </div>
                 </div>
             </section>
 
             <section id="education" class="section card">
                 <h2>Education</h2>
-                <div class="timeline-item">
-                    <div class="time-header">
-                        <h3>STMIK MARDIRA</h3>
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <strong>STMIK MARDIRA</strong>
                         <span>Jan, 2019 – Feb, 2022</span>
                     </div>
-                    <p><strong>Bachelor of Information System (SI)</strong> | GPA: 3.20 / 4.00</p>
-                    <p>Thesis: Sistem Informasi Keuangan: Kitchen Al-Watani</p>
+                    <p>Bachelor of Information System (SI) | GPA: 3.20 / 4.00</p>
+                    <p><em>Thesis: Sistem Informasi Keuangan: Kitchen Al-Watani</em></p>
                 </div>
-                <div class="timeline-item">
-                    <div class="time-header">
-                        <h3>RevoU</h3>
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <strong>RevoU</strong>
                         <span>June, 2025 – Present</span>
                     </div>
-                    <p><strong>Full Stack Data Analytics</strong></p>
+                    <p>Full Stack Data Analytics</p>
                     <ul>
-                        <li>Completed intensive industry-focused data analytics program.</li>
-                        <li>Hands-on experience with Python, SQL, Tableau, and Power BI.</li>
+                        <li>Intensive program covering data cleaning, SQL, and business insights.</li>
+                        <li>Hands-on experience with Python, Tableau, and Power BI.</li>
                     </ul>
                 </div>
             </section>
 
-            <section id="skills" class="section card">
-                <h2>Skills Mastery</h2>
-                <div class="skills-container">
-                    <h3>Hard Skills</h3>
-                    <div class="skill-bar" data-skill="Excel" data-percent="90%">
-                        <div class="progress hard" style="width: 90%;"><span>Excel 90%</span></div>
+            <section id="skill" class="section card">
+                <h2>Skills & Mastery</h2>
+                <div class="skill-container">
+                    <div class="skill-list">
+                        <h3>Hard Skills</h3>
+                        <p class="skill-tag h-skill" data-skill="excel">Excel</p>
+                        <p class="skill-tag h-skill" data-skill="sql">SQL</p>
+                        <p class="skill-tag h-skill" data-skill="python">Python</p>
+                        <p class="skill-tag h-skill" data-skill="pbi">Power BI</p>
+                        
+                        <h3>Soft Skills</h3>
+                        <p class="skill-tag s-skill" data-skill="ps">Problem-Solving</p>
+                        <p class="skill-tag s-skill" data-skill="comm">Communication</p>
+                        <p class="skill-tag s-skill" data-skill="detail">Attention to Detail</p>
                     </div>
-                    <div class="skill-bar" data-skill="SQL" data-percent="85%">
-                        <div class="progress hard" style="width: 85%;"><span>SQL 85%</span></div>
-                    </div>
-                    <div class="skill-bar" data-skill="Python" data-percent="80%">
-                        <div class="progress hard" style="width: 80%;"><span>Python 80%</span></div>
-                    </div>
-                    <div class="skill-bar" data-skill="Power BI" data-percent="75%">
-                        <div class="progress hard" style="width: 75%;"><span>Power BI 75%</span></div>
-                    </div>
-
-                    <h3 style="margin-top: 20px;">Soft Skills</h3>
-                    <div class="skill-bar" data-skill="Problem Solving" data-percent="90%">
-                        <div class="progress soft" style="width: 90%;"><span>Problem-Solving 90%</span></div>
-                    </div>
-                    <div class="skill-bar" data-skill="Communication" data-percent="85%">
-                        <div class="progress soft" style="width: 85%;"><span>Communication 85%</span></div>
-                    </div>
+                    <div class="skill-charts">
+                        <div class="chart-item" id="chart-excel">
+                            <span>Excel 90%</span>
+                            <div class="bar-bg"><div class="bar-fill orange" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="chart-item" id="chart-ps">
+                            <span>Problem Solving 85%</span>
+                            <div class="bar-bg"><div class="bar-fill purple" style="width: 85%;"></div></div>
+                        </div>
+                        </div>
                 </div>
             </section>
 
             <section id="experience" class="section card">
                 <h2>Experience</h2>
-                <div class="timeline-item">
-                    <div class="time-header">
-                        <h3>Owner - Kitchen Al-Watani</h3>
-                        <span>2019 - Present</span>
-                    </div>
-                    <p>Developed automated financial reports using Excel, improving pricing accuracy and efficiency.</p>
+                <div class="exp-item">
+                    <h3>Owner - Kitchen Al-Watani</h3>
+                    <p>Jan, 2019 – Present</p>
+                    <ul>
+                        <li>Developed automated financial reports using Microsoft Excel.</li>
+                        <li>Conducted daily monitoring of inventory and supplies.</li>
+                    </ul>
                 </div>
-                <div class="timeline-item">
-                    <div class="time-header">
-                        <h3>Data Entry - PT. Newfemme</h3>
-                        <span>2022 - 2023</span>
-                    </div>
-                    <p>Validated high-volume operational data with 99%+ accuracy using Excel and SaaS systems.</p>
+                <div class="exp-item">
+                    <h3>Data Entry - PT. Newfemme</h3>
+                    <p>March, 2022 – August, 2023</p>
+                    <ul>
+                        <li>Inputted and validated high-volume operational data (99%+ accuracy).</li>
+                        <li>Collaborated with teams to define data entry requirements.</li>
+                    </ul>
                 </div>
             </section>
 
@@ -119,10 +121,9 @@
                 <h2>Projects</h2>
                 <div class="project-grid">
                     <div class="project-card">
-                        <img src="assets/project1.jpg" alt="E-commerce Analysis">
-                        <h3>E-commerce Data Pipeline</h3>
-                        <p>End-to-end data analysis for retail insights.</p>
-                        <button class="btn-doc" onclick="openModal('project1')">Documentation</button>
+                        <img src="assets/project1.jpg" alt="Data Analytics Project">
+                        <h3>E-Commerce Sales Analysis</h3>
+                        <button class="doc-btn" onclick="openModal('proj1')">Documentation</button>
                     </div>
                 </div>
             </section>
@@ -132,24 +133,18 @@
                 <form id="contact-form">
                     <input type="text" placeholder="Name" required>
                     <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Your Comment" rows="5" required></textarea>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
             </section>
         </main>
     </div>
 
-    <div id="docModal" class="modal">
+    <div id="projectModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modalImg" src="" alt="Project Preview">
-            <h3 id="modalTitle">Project Details</h3>
-            <p id="modalSummary">Summary goes here...</p>
-            <div class="modal-links">
-                <a href="#" class="btn-pdf">PDF</a>
-                <a href="#" class="btn-code">Code</a>
-                <a href="#" class="btn-dash">Dashboard</a>
-            </div>
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                </div>
         </div>
     </div>
 
