@@ -1,49 +1,195 @@
-// Skill Bar Logic
-const skillLabels = document.querySelectorAll('.skill-label');
-const activeBar = document.getElementById('active-bar');
+:root {
+    --primary-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --accent-orange: linear-gradient(90deg, #f59e0b, #ea580c);
+    --accent-purple: linear-gradient(90deg, #a855f7, #7c3aed);
+    --shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
 
-skillLabels.forEach(label => {
-    label.addEventListener('mouseenter', () => {
-        const percent = label.getAttribute('data-percent');
-        const type = label.parentElement.getAttribute('data-type');
-        
-        activeBar.style.width = percent + '%';
-        activeBar.innerText = percent + '%';
-        
-        if(type === 'hard') {
-            activeBar.style.background = 'linear-gradient(90deg, #f59e0b, #ea580c)';
-            label.style.color = '#ea580c';
-        } else {
-            activeBar.style.background = 'linear-gradient(90deg, #a855f7, #7c3aed)';
-            label.style.color = '#7c3aed';
-        }
-    });
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-    label.addEventListener('mouseleave', () => {
-        label.style.color = '#334155';
-    });
-});
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+}
 
-// Modal Logic
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const modalSummary = document.getElementById('modal-summary');
-const closeBtn = document.querySelector('.close');
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
 
-document.querySelectorAll('.doc-btn').forEach(btn => {
-    btn.onclick = () => {
-        modal.style.display = "block";
-        modalImg.src = btn.getAttribute('data-img');
-        modalSummary.innerText = btn.getAttribute('data-summary');
+.header-right i {
+    font-size: 1.5rem;
+    margin-left: 20px;
+    color: var(--text-main);
+    transition: 0.3s;
+}
+
+.header-right i:hover { color: #ea580c; }
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 999;
+}
+
+.side-nav a {
+    background: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: 0.3s;
+}
+
+.side-nav a:hover {
+    background: #ea580c;
+    color: white;
+}
+
+/* Main Content */
+main {
+    margin-top: 80px;
+    margin-left: 100px;
+    padding: 20px;
+    max-width: 1000px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+
+.section-split {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: var(--shadow);
+}
+
+/* Skills Chart */
+.skill-label {
+    padding: 8px 15px;
+    margin: 5px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chart-box {
+    width: 100%;
+    height: 30px;
+    background: #e2e8f0;
+    border-radius: 15px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    width: 0%;
+    color: white;
+    text-align: right;
+    padding-right: 15px;
+    line-height: 30px;
+    font-weight: bold;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.close { float: right; cursor: pointer; font-size: 24px; }
+
+/* Contact Form */
+form input, form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+button {
+    background: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    main { margin-left: 0; padding: 10px; margin-top: 100px; }
+    .side-nav {
+        flex-direction: row;
+        bottom: 20px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
     }
-});
-
-closeBtn.onclick = () => modal.style.display = "none";
-window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
-
-// Simple Form Handling
-document.getElementById('contact-form').onsubmit = (e) => {
-    e.preventDefault();
-    alert("Message sent successfully! (This is a demo)");
-    e.target.reset();
-};
+    .section-split { flex-direction: column; text-align: center; }
+}
