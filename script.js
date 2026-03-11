@@ -1,36 +1,36 @@
-// Function to open the project documentation modal
+// Documentation Modal Logic
+const modal = document.getElementById("projectModal");
+const span = document.getElementsByClassName("close")[0];
+
 function openModal(projectId) {
-    const modal = document.getElementById("docModal");
-    const modalImg = document.getElementById("modalImg");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalSummary = document.getElementById("modalSummary");
-
-    // Sample data for the random project
-    if(projectId === 'project1') {
-        modalImg.src = "assets/project1.jpg";
-        modalTitle.innerText = "E-commerce Data Pipeline";
-        modalSummary.innerText = "Built an automated data flow from CSV sources to a SQL database, featuring data cleaning in Python and a final dashboard in Power BI.";
+    const modalBody = document.getElementById("modal-body");
+    
+    // Example data for the modal
+    if(projectId === 'proj1') {
+        modalBody.innerHTML = `
+            <h3>E-Commerce Data Analysis</h3>
+            <img src="assets/project1.jpg" style="width:100%; border-radius:10px; margin: 10px 0;">
+            <p>Summary: Cleaned a dataset of 10,000 sales records to identify seasonal trends and customer demographics.</p>
+            <div style="margin-top: 20px; display: flex; gap: 10px;">
+                <a href="#" class="btn-sm">PDF</a>
+                <a href="#" class="btn-sm">Code</a>
+                <a href="#" class="btn-sm">Dashboard</a>
+            </div>
+        `;
     }
-
     modal.style.display = "block";
 }
 
-// Function to close modal
-function closeModal() {
-    document.getElementById("docModal").style.display = "none";
-}
-
-// Close modal when clicking outside of it
+// Close modal
 window.onclick = function(event) {
-    let modal = document.getElementById("docModal");
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
 
-// Contact Form Handler
+// Simple Contact Form Alert
 document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert("Thank you, Salman will get back to you soon!");
+    alert('Thank you, Salman will get back to you soon!');
     this.reset();
 });
