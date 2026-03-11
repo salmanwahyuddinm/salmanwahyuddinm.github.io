@@ -1,43 +1,49 @@
-// Skill Hover Highlight Logic
-const skillTags = document.querySelectorAll('.skill-tag');
+// Skill Bar Logic
+const skillLabels = document.querySelectorAll('.skill-label');
+const activeBar = document.getElementById('active-bar');
 
-skillTags.forEach(tag => {
-    tag.addEventListener('mouseenter', () => {
-        const targetId = tag.getAttribute('data-target');
-        const targetBar = document.getElementById(targetId);
+skillLabels.forEach(label => {
+    label.addEventListener('mouseenter', () => {
+        const percent = label.getAttribute('data-percent');
+        const type = label.parentElement.getAttribute('data-type');
         
-        if (tag.classList.contains('hard-tag')) {
-            targetBar.classList.add('highlight-hard');
+        activeBar.style.width = percent + '%';
+        activeBar.innerText = percent + '%';
+        
+        if(type === 'hard') {
+            activeBar.style.background = 'linear-gradient(90deg, #f59e0b, #ea580c)';
+            label.style.color = '#ea580c';
         } else {
-            targetBar.classList.add('highlight-soft');
+            activeBar.style.background = 'linear-gradient(90deg, #a855f7, #7c3aed)';
+            label.style.color = '#7c3aed';
         }
     });
 
-    tag.addEventListener('mouseleave', () => {
-        const targetId = tag.getAttribute('data-target');
-        const targetBar = document.getElementById(targetId);
-        targetBar.classList.remove('highlight-hard', 'highlight-soft');
+    label.addEventListener('mouseleave', () => {
+        label.style.color = '#334155';
     });
 });
 
 // Modal Logic
-function openModal(id) {
-    const modal = document.getElementById("projectModal");
-    modal.style.display = "block";
-    document.getElementById('modal-desc').innerText = "This project focuses on building automated pipelines for retail data using Python and SQL.";
-}
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const modalSummary = document.getElementById('modal-summary');
+const closeBtn = document.querySelector('.close');
 
-function closeModal() {
-    document.getElementById("projectModal").style.display = "none";
-}
-
-// Close modal on outside click
-window.onclick = function(e) {
-    if (e.target.className === "modal") closeModal();
-}
-
-// Contact Form Simulation
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert("Message sent! I will get back to you soon.");
+document.querySelectorAll('.doc-btn').forEach(btn => {
+    btn.onclick = () => {
+        modal.style.display = "block";
+        modalImg.src = btn.getAttribute('data-img');
+        modalSummary.innerText = btn.getAttribute('data-summary');
+    }
 });
+
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
+
+// Simple Form Handling
+document.getElementById('contact-form').onsubmit = (e) => {
+    e.preventDefault();
+    alert("Message sent successfully! (This is a demo)");
+    e.target.reset();
+};
