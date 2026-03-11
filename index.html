@@ -5,147 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salman Wahyuddin Muharam | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
     <header>
-        <div class="header-container">
-            <div class="logo">Salman Wahyuddin Muharam</div>
-            <div class="social-links">
-                <a href="https://wa.me/yournumber" class="wa"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://linkedin.com/in/yourprofile" class="li"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:yourgmail@gmail.com" class="gm"><i class="fas fa-envelope"></i></a>
-            </div>
+        <div class="header-left">
+            <h1>Salman Wahyuddin Muharam</h1>
+        </div>
+        <div class="header-right">
+            <a href="https://wa.me/yournumber" class="icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://linkedin.com/in/yourprofile" class="icon linkedin"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:yourgmail@gmail.com" class="icon gmail"><i class="fas fa-envelope"></i></a>
         </div>
     </header>
 
     <nav class="side-nav">
         <a href="#about" title="About Me"><i class="fas fa-user"></i></a>
         <a href="#education" title="Education"><i class="fas fa-graduation-cap"></i></a>
-        <a href="#skills" title="Skills"><i class="fas fa-tools"></i></a>
+        <a href="#skill" title="Skills"><i class="fas fa-tools"></i></a>
         <a href="#experience" title="Experience"><i class="fas fa-briefcase"></i></a>
         <a href="#projects" title="Projects"><i class="fas fa-project-diagram"></i></a>
         <a href="#contact" title="Contact"><i class="fas fa-paper-plane"></i></a>
     </nav>
 
     <main>
-        <section id="about" class="section">
-            <div class="about-content">
+        <section id="about" class="card">
+            <div class="content-flex">
                 <div class="text-side">
                     <h2>About Me</h2>
                     <p>I am a data enthusiast with approximately one year of experience working as a Data Entry specialist. This experience helped me develop strong attention to detail and a solid understanding of how important data quality and organization are within a system.</p>
-                    <p>To deepen my knowledge in the data field, I completed a Full Data Analytics course, where I gained a broader understanding of data processing and analysis.</p>
-                    <p>Although I learned data analytics, I find myself more interested in <strong>Data Engineering</strong>, as I enjoy working on the system and backend side of data, such as organizing data flows and building the foundation that supports data analysis.</p>
+                    <p>To deepen my knowledge in the data field, I completed a Full Data Analytics course. Although I learned data analytics, I find myself more interested in <strong>Data Engineering</strong>, as I enjoy working on the system and backend side of data, such as organizing data flows and building foundations.</p>
                 </div>
                 <div class="image-side">
-                    <img src="assets/profile.jpg" alt="Salman Profile" class="profile-img">
+                    <img src="assets/profile.jpg" alt="Salman Wahyuddin Muharam" class="profile-img">
                 </div>
             </div>
         </section>
 
-        <section id="education" class="section">
+        <section id="education" class="card">
             <h2>Education</h2>
-            <div class="card">
-                <div class="card-header">
-                    <h3>STMIK MARDIRA</h3>
+            <div class="edu-item">
+                <div class="edu-header">
+                    <strong>STMIK MARDIRA</strong>
                     <span>Jan, 2019 – Feb, 2022</span>
                 </div>
-                <p><strong>Bachelor of Information System (SI)</strong> | GPA: 3.20 / 4.00</p>
-                <p>Thesis: Sistem Informasi Keuangan: Kitchen Al - Watani</p>
+                <p>Bachelor of Information System (SI) | GPA: 3.20 / 4.00</p>
+                <p><em>Thesis: Sistem Informasi Keuangan : Kitchen Al - Watani</em></p>
             </div>
-            <div class="card">
-                <div class="card-header">
-                    <h3>RevoU</h3>
+            <div class="edu-item">
+                <div class="edu-header">
+                    <strong>RevoU</strong>
                     <span>June, 2025 – Present</span>
                 </div>
-                <p><strong>Full Stack Data Analytics</strong></p>
+                <p>Full Stack Data Analytics</p>
                 <ul>
-                    <li>Completed intensive end-to-end data analysis: cleaning, querying, and visualization.</li>
+                    <li>Completed intensive industry-focused data analytics program.</li>
                     <li>Hands-on experience with Python, SQL, Tableau, and Power BI.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="skills" class="section">
-            <h2>Skills Mastery</h2>
-            <div class="skills-container">
-                <div class="skills-list">
-                    <h3>Technical & Professional</h3>
-                    <p>My core competencies focused on data infrastructure and analytical problem solving.</p>
+        <section id="skill" class="card">
+            <h2>Skills</h2>
+            <div class="content-flex">
+                <div class="text-side">
+                    <div class="skill-group" data-type="hard">
+                        <h3>Hard Skills</h3>
+                        <span class="skill-tag" data-percent="90">Excel</span>
+                        <span class="skill-tag" data-percent="85">SQL</span>
+                        <span class="skill-tag" data-percent="80">Python</span>
+                        <span class="skill-tag" data-percent="75">Power BI</span>
+                    </div>
+                    <div class="skill-group" data-type="soft">
+                        <h3>Soft Skills</h3>
+                        <span class="skill-tag" data-percent="95">Problem-Solving</span>
+                        <span class="skill-tag" data-percent="90">Communication</span>
+                        <span class="skill-tag" data-percent="95">Attention to Detail</span>
+                        <span class="skill-tag" data-percent="85">Adaptability</span>
+                    </div>
                 </div>
-                <div class="skills-chart">
-                    <div class="skill-item hard" data-percent="90">
-                        <span class="skill-name">Excel</span>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-item hard" data-percent="85">
-                        <span class="skill-name">SQL</span>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
-                    </div>
-                    <div class="skill-item hard" data-percent="80">
-                        <span class="skill-name">Python</span>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 80%;"></div></div>
-                    </div>
-                    <div class="skill-item hard" data-percent="75">
-                        <span class="skill-name">Power BI</span>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
-                    </div>
-                    <div class="skill-item soft" data-percent="95">
-                        <span class="skill-name">Problem-Solving</span>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 95%;"></div></div>
-                    </div>
-                    <div class="skill-item soft" data-percent="90">
-                        <span class="skill-name">Attention to Detail</span>
-                        <div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div>
-                    </div>
+                <div class="image-side">
+                    <canvas id="skillChart"></canvas>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="section">
+        <section id="experience" class="card">
             <h2>Experience</h2>
-            <div class="card">
-                <h3>Owner - Kitchen Al-Watani</h3>
-                <p class="date">Jan, 2019 – Present</p>
+            <div class="exp-item">
+                <h3>Owner - Kitchen Al - Watani</h3>
+                <small>Jan, 2019 – Present</small>
                 <ul>
-                    <li>Developed automated financial reports using Excel, improving pricing accuracy.</li>
-                    <li>Conducted daily inventory monitoring using automated tracking sheets.</li>
+                    <li>Developed automated financial and sales reports using MS Excel.</li>
+                    <li>Conducted daily monitoring of inventory using Excel logs.</li>
                 </ul>
             </div>
-            <div class="card">
+            <div class="exp-item">
                 <h3>Data Entry - PT. Newfemme</h3>
-                <p class="date">March, 2022 – August, 2023</p>
-                <p><small>Multi-service tech application for women's healthcare and lifestyle.</small></p>
+                <small>March, 2022 – August, 2023</small>
                 <ul>
-                    <li>Validated high-volume data ensuring 99%+ accuracy.</li>
-                    <li>Collaborated on data validation tools to reduce processing errors.</li>
+                    <li>Inputted and validated high-volume operational data (99%+ accuracy).</li>
+                    <li>Collaborated with cross-functional teams to define data requirements.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="projects" class="section">
+        <section id="projects" class="card">
             <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <img src="https://via.placeholder.com/300x180" alt="Project Thumbnail">
-                    <div class="p-4">
-                        <h3>E-Commerce ETL Pipeline</h3>
-                        <p>Cleaning and automating sales data flows.</p>
-                        <button class="btn-doc" onclick="openModal('proj1')">Documentation</button>
-                    </div>
+                    <img src="https://via.placeholder.com/300x180" alt="Project 1">
+                    <h3>E-Commerce Data Pipeline</h3>
+                    <button class="btn-doc" onclick="openModal('proj1')">Documentation</button>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <h2>Get In Touch</h2>
-            <form id="contact-form" class="card">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn-send">Send Message</button>
+        <section id="contact" class="card">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Your Comment" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
             </form>
         </section>
     </main>
@@ -154,7 +139,15 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="modal-body">
+                <img id="modal-img" src="" alt="Project">
+                <h3 id="modal-title"></h3>
+                <p id="modal-desc"></p>
+                <div class="modal-links">
+                    <a href="#" class="btn-mini">PDF</a>
+                    <a href="#" class="btn-mini">Code</a>
+                    <a href="#" class="btn-mini">Dashboard</a>
                 </div>
+            </div>
         </div>
     </div>
 
