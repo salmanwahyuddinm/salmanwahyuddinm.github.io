@@ -1,64 +1,69 @@
-// Sample Project Data
-const projects = {
-    proj1: {
-        title: "E-Commerce Data Pipeline",
-        image: "https://via.placeholder.com/600x300",
-        summary: "An automated end-to-end data pipeline using Python and SQL to extract daily sales data, transform it for regional reporting, and load it into a Power BI dashboard.",
-        pdf: "#",
-        code: "https://github.com",
-        dashboard: "#"
+// Initialize Chart
+let ctx = document.getElementById('skillChart').getContext('2d');
+let skillChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [],
+        datasets: [{
+            label: 'Mastery %',
+            data: [],
+            backgroundColor: []
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        scales: { x: { min: 0, max: 100 } },
+        plugins: { legend: { display: false } }
     }
-};
+});
+
+// Interactive Skill Chart Logic
+const skillTags = document.querySelectorAll('.skill-tag');
+const chartContainer = document.querySelector('.image-side');
+
+// Initially hide the canvas
+document.getElementById('skillChart').style.opacity = '0';
+
+skillTags.forEach(tag => {
+    tag.addEventListener('mouseenter', () => {
+        const percent = tag.getAttribute('data-percent');
+        const name = tag.innerText;
+        const type = tag.parentElement.getAttribute('data-type');
+        const color = type === 'hard' ? '#ff9f43' : '#a29bfe';
+
+        updateChart(name, percent, color);
+        document.getElementById('skillChart').style.opacity = '1';
+    });
+});
+
+function updateChart(label, value, color) {
+    skillChart.data.labels = [label];
+    skillChart.data.datasets[0].data = [value];
+    skillChart.data.datasets[0].backgroundColor = [color];
+    skillChart.update();
+}
 
 // Modal Logic
-function openModal(id) {
-    const project = projects[id];
-    const modal = document.getElementById("projectModal");
-    const body = document.getElementById("modal-body");
+function openModal(projectId) {
+    const modal = document.getElementById('projectModal');
+    const title = document.getElementById('modal-title');
+    const desc = document.getElementById('modal-desc');
+    const img = document.getElementById('modal-img');
 
-    body.innerHTML = `
-        <img src="${project.image}" style="width:100%; border-radius:15px; margin-bottom:15px;">
-        <h3>${project.title}</h3>
-        <p style="margin: 15px 0; color: #555;">${project.summary}</p>
-        <div class="modal-btns">
-            <a href="${project.pdf}" class="btn-pdf">PDF Document</a>
-            <a href="${project.code}" class="btn-code">View Code</a>
-            <a href="${project.dashboard}" class="btn-dash">Dashboard</a>
-        </div>
-    `;
+    // Dummy data for example
+    title.innerText = "Data Pipeline Project";
+    desc.innerText = "A summary of the end-to-end data pipeline using Python and SQL to automate sales reporting.";
+    img.src = "https://via.placeholder.com/400x200";
+
     modal.style.display = "block";
 }
 
 function closeModal() {
-    document.getElementById("projectModal").style.display = "none";
+    document.getElementById('projectModal').style.display = "none";
 }
 
-// Close modal when clicking outside
-window.onclick = function(event) {
-    let modal = document.getElementById("projectModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-// Simple Form Alert
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+// Form Submission (Simulated)
+document.getElementById('contact-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Thank you, Salman will get back to you soon!');
-    this.reset();
+    alert("Thank you! Your message has been sent to Salman.");
 });
-
-// Skills Animation on Scroll
-const observerOptions = { threshold: 0.5 };
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.bar-fill').forEach(bar => {
-                const width = bar.parentElement.parentElement.getAttribute('data-percent');
-                bar.style.width = width + '%';
-            });
-        }
-    });
-}, observerOptions);
-
-observer.observe(document.querySelector('#skills'));
