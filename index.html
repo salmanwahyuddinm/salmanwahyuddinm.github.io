@@ -1,703 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Data Portfolio</title>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
-body{
-background:linear-gradient(135deg,#eef2ff,#f8fafc);
-color:#111;
-scroll-behavior:smooth;
-transition:0.3s;
-}
-
-/* Container */  
-
-.skills-container{
-
-display:flex;
-flex-direction:column;
-gap:50px;
-
-max-width:900px;
-margin:auto;
-
-}
-
-.skill-chart{
-
-background:white;
-padding:25px;
-
-border-radius:20px;
-
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
-
-}
-
-body.dark .skill-chart{
-background:#1e293b;
-}
-
-.skill-chart h3{
-margin-bottom:20px;
-}
-
-/* HARD SKILLS BAR */
-
-const hardCtx = document.getElementById('hardSkills');
-
-new Chart(hardCtx,{
-
-type:'bar',
-
-data:{
-
-labels:[
-'Excel',
-'SQL',
-'Python',
-'Data Cleaning',
-'Power BI',
-'Tableau'
-],
-
-datasets:[{
-
-label:'Skill Level',
-
-data:[4,4,3,4,3,3],
-
-backgroundColor:[
-'#f97316',
-'#fb923c',
-'#fdba74',
-'#f59e0b',
-'#fbbf24',
-'#fde68a'
-]
-
-}]
-
-},
-
-options:{
-
-indexAxis:'y',
-
-scales:{
-x:{
-beginAtZero:true,
-max:5
-}
-}
-
-}
-
-});
-
-
-/* SOFT SKILLS BAR */
-
-const softCtx = document.getElementById('softSkills');
-
-new Chart(softCtx,{
-
-type:'bar',
-
-data:{
-
-labels:[
-'Communication',
-'Adaptability',
-'Analytical Thinking',
-'Attention to Detail'
-],
-
-datasets:[{
-
-label:'Skill Level',
-
-data:[4,4,4,5],
-
-backgroundColor:[
-'#7c3aed',
-'#8b5cf6',
-'#a78bfa',
-'#c4b5fd'
-]
-
-}]
-
-},
-
-options:{
-
-indexAxis:'y',
-
-scales:{
-x:{
-beginAtZero:true,
-max:5
-}
-}
-
-}
-
-});
-    
-/* NAVBAR */
-
-nav{
-
-position:fixed;
-top:0;
-left:0;
-width:100%;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:15px 8%;
-
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(10px);
-
-box-shadow:0 4px 20px rgba(0,0,0,0.05);
-
-z-index:100;
-
-}
-
-body.dark nav{
-background:rgba(15,23,42,0.8);
-}
-
-.logo{
-
-font-size:20px;
-font-weight:700;
-
-background:linear-gradient(90deg,#6366f1,#ec4899);
--webkit-background-clip:text;
-color:transparent;
-
-}
-
-.nav-links{
-
-display:flex;
-gap:30px;
-
-}
-
-.nav-links a{
-
-text-decoration:none;
-font-weight:500;
-color:inherit;
-
-position:relative;
-
-transition:0.3s;
-
-}
-
-/* underline animation */
-
-.nav-links a::after{
-
-content:'';
-position:absolute;
-
-width:0;
-height:2px;
-
-left:0;
-bottom:-4px;
-
-background:linear-gradient(90deg,#6366f1,#ec4899);
-
-transition:0.3s;
-
-}
-
-.nav-links a:hover::after{
-width:100%;
-}
-
-/* SECTIONS */
-
-section{
-padding:120px 10%;
-}
-
-.title{
-text-align:center;
-font-size:36px;
-margin-bottom:50px;
-font-weight:700;
-background:linear-gradient(90deg,#6366f1,#ec4899);
--webkit-background-clip:text;
-color:transparent;
-}
-
-/* ABOUT */
-
-.about{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:40px;
-flex-wrap:wrap;
-}
-
-.about-text{
-flex:1;
-font-size:18px;
-line-height:1.7;
-}
-
-.about img{
-width:280px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-}
-
-/* SKILLS */
-
-.skills-layout{
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:60px;
-flex-wrap:wrap;
-
-}
-
-/* LEFT SIDE */
-
-.skills-left{
-flex:1;
-}
-
-.skill-row{
-
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-margin-bottom:30px;
-
-}
-
-.skill-row span{
-
-padding:8px 14px;
-border-radius:20px;
-background:#f1f5f9;
-font-size:14px;
-transition:0.3s;
-cursor:pointer;
-
-}
-
-/* HARD SKILL HOVER */
-
-.skill-row.hard span:hover{
-
-background:linear-gradient(90deg,orange,#f97316);
-color:white;
-
-}
-
-/* SOFT SKILL HOVER */
-
-.skill-row.soft span:hover{
-
-background:linear-gradient(90deg,purple,#9333ea);
-color:white;
-
-}
-
-/* RIGHT SIDE */
-
-.skills-right{
-flex:1;
-max-width:450px;
-}
-
-/* EDUCATION */
-
-.edu{
-margin-bottom:35px;
-}
-
-/* EXPERIENCE */
-
-.exp{
-margin-bottom:35px;
-}
-
-.more{
-display:none;
-}
-
-/* BUTTON */
-
-button{
-margin-top:10px;
-padding:8px 16px;
-border:none;
-border-radius:20px;
-background:linear-gradient(90deg,#6366f1,#ec4899);
-color:white;
-cursor:pointer;
-}
-
-/* PROJECT */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-padding:20px;
-border-radius:20px;
-background:white;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-body.dark .card{
-background:#1e293b;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salman Wahyuddin M | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- NAV -->
-
-<div class="nav-links">
-<a href="#about">About Me</a>
-<a href="#skills">Skill</a>
-<a href="#education">Education</a>
-<a href="#experience">Experience</a>
-<a href="#project">Project</a>
-</div>
-
-</nav>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<div class="title">About Me</div>
-
-<div class="about">
-
-<div class="about-text">
-
-<p>
-    I am a data enthusiast with around one year of experience as a Data Entry specialist. Through this role, I developed strong attention to detail and gained a solid understanding of the importance of data quality and proper data organization within a system.
-</p>
-    <br>
-<p>
-    To expand my knowledge in the data field, I completed a Full Data Analytics course from RevoU where I learned the fundamentals of data processing and analysis. During this learning journey, I discovered a strong interest in the backend and system side of data. I am currently continuing to learn and develop my skills toward becoming a Data Engineer, focusing on understanding data pipelines, data workflows, and the infrastructure that supports data analysis.
-</p>
-    <br>
-<p>
-    I am passionate about continuously learning and building efficient, reliable, and well-structured data systems.
-</p>
-
-</div>
-
-<img src="Image/PP.jpg">
-
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<div class="title">Skills</div>
-
-<div class="skills-layout">
-
-<!-- LEFT -->
-
-<div class="skills-left">
-
-<h3 class="hard-title">Hard Skills</h3>
-
-<div class="skill-row hard">
-<span>Excel</span>
-<span>SQL</span>
-<span>Python</span>
-<span>Tableau</span>
-<span>Power BI</span>
-<span>Data Cleaning</span>
-</div>
-
-<h3 class="soft-title">Soft Skills</h3>
-
-<div class="skill-row soft">
-<span>Communication</span>
-<span>Adaptability</span>
-<span>Analytical Thinking</span>
-<span>Strong attention to detail</span>
-</div>
-
-</div>
-
-<!-- RIGHT -->
-
-<div class="skills-right">
-
-<canvas id="skillsRadar"></canvas>
-
-</div>
-
-</div>
-
-</section>
-
-<div class="chart">
-
-<canvas id="radar"></canvas>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EDUCATION -->
-
-<section id="education">
-
-<div class="title">Education</div>
-
-<div class="edu">
-
-<b>STMIK MARDIRA</b> — Jan 2019 – Feb 2022  
-<br>GPA: 3.20 / 4.00  
-<br>Bachelor of Information System  
-<br>Thesis : Sistem Informasi Keuangan : Kitchen Al - Watani
-
-</div>
-
-<div class="edu">
-
-<b>RevoU</b> — June 2025 – Present  
-<br>Full Stack Data Analytics
-<p>
-Completed an intensive industry-focused data analytics program covering end-to-end data analysis, including data cleaning, querying, statistical analysis, data visualization, and business insight generation.
-</p>
-    <br>
-<p>
-Developed hands-on experience using <strong>Python</strong>, <strong>SQL</strong>, <strong>Tableau</strong>, and <strong>Power BI</strong> to analyze datasets, build dashboards, and deliver actionable insights through real-world projects.
-</p>
-
-</div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section id="experience">
-
-<div class="title">Experience</div>
-
-<div class="exp">
-
-<b>Owner - Kitchen Al Watani – Cimahi</b>  
-<br>Jan 2019 – Present
-
-<ul>
-<li> Developed automated financial and sales reports from manual written records using Microsoft Excel (formulas, spreadsheets, price calculation templates), improving pricing accuracy and increasing time efficiency in income and expense tracking.</li>
-<li> Conducted daily monitoring of office supplies and sales inventory using stock tracking sheets and Excel inventory logs, ensuring stock availability and supporting smooth business operations without disruptions.</li>
-</div>
-
-</ul>
-
-</div>
-<div class="exp">
-<b>Data Entry - PT Newfemme – Jakarta</b>  
-<br>March 2022 – August 2023
-<br>The multi-service tech application that understands women the most. Newfemme embraces many aspects of personal and commercial life within a single app such as healthcare, lifestyle, parenting, beauty, entertainment to shopping
-<ul>
-
-<li> Strengthened data integrity and reporting reliability by validating and managing high-volume operational datasets through Microsoft Excel and internal SaaS systems, maintaining over 99% data accuracy for business reporting.</li>
-<li> Improved data consistency across departments by standardizing data entry requirements using Excel validation rules and structured templates, reducing processing errors and enhancing cross-functional data alignment.</li>
-</div>
-
-</ul>
-
-</div>
-
-</section>
-
-<!-- PROJECT -->
-
-<section id="project">
-
-<div class="title">Projects</div>
-
-<div class="projects">
-
-<div class="card">
-
-<h3>Sales Dashboard</h3>
-
-<p>
-Built Power BI dashboard analyzing sales trends and revenue growth.
-</p>
-
-<button>Documentation</button>
-
-</div>
-
-<div class="card">
-
-<h3>Customer Segmentation</h3>
-
-<p>
-Python clustering project to segment customers based on purchasing behavior.
-</p>
-
-<button>Documentation</button>
-
-</div>
-
-<div class="card">
-
-<h3>Data Cleaning Automation</h3>
-
-<p>
-Python scripts for automated data cleaning and preprocessing.
-</p>
-
-<button>Documentation</button>
-
-</div>
-
-</div>
-
-</section>
-
-<script>
-
-/* MORE BUTTON */
-
-function toggle(btn){
-
-let more = btn.previousElementSibling.querySelector(".more")
-
-if(more.style.display==="block"){
-more.style.display="none"
-btn.innerText="More"
-}else{
-more.style.display="block"
-btn.innerText="Less"
-}
-
-}
-
-const ctx = document.getElementById('skillsRadar');
-
-new Chart(ctx, {
-
-type: 'radar',
-
-data: {
-
-labels: [
-'Excel',
-'SQL',
-'Python',
-'Tableau',
-'Power BI',
-'Data Cleaning',
-'Communication',
-'Adaptability',
-'Analytical Thinking',
-'Attention to Detail'
-],
-
-datasets: [
-
-{
-label: 'Hard Skills',
-data: [4,3,3,3,3,4,0,0,0,0],
-backgroundColor: 'rgba(249,115,22,0.2)',
-borderColor: '#f97316',
-pointBackgroundColor:'#f97316'
-},
-
-{
-label: 'Soft Skills',
-data: [0,0,0,0,0,0,3,4,3,5],
-backgroundColor: 'rgba(147,51,234,0.2)',
-borderColor: '#9333ea',
-pointBackgroundColor:'#9333ea'
-}
-
-]
-
-},
-
-options: {
-
-responsive:true,
-
-scales:{
-
-r:{
-beginAtZero:true,
-max:5,
-ticks:{display:false}
-}
-
-},
-
-plugins:{
-legend:{
-position:'bottom'
-}
-}
-
-}
-
-});
-
-</script>
-
+    <header>
+        <nav class="container">
+            <div class="logo">Salman Wahyuddin M</div>
+            <div class="social-links">
+                <a href="https://wa.me/yournumber" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="about" class="card">
+            <h2>About Me</h2>
+            <p>I am a data enthusiast with approximately one year of experience working as a Data Entry specialist. This experience helped me develop strong attention to detail and a solid understanding of how important data quality and organization are within a system.</p>
+            <p>To deepen my knowledge in the data field, I completed a Full Data Analytics course, where I gained a broader understanding of data processing and analysis.</p>
+            <p>Although I learned data analytics, I find myself more interested in <strong>Data Engineering</strong>, as I enjoy working on the system and backend side of data, such as organizing data flows and building the foundation that supports data analysis.</p>
+        </section>
+
+        <section id="education" class="card">
+            <h2>Education</h2>
+            <div class="edu-item">
+                <div class="edu-header">
+                    <h3>STMIK MARDIRA</h3>
+                    <span>Jan, 2019 – Feb, 2022</span>
+                </div>
+                <p>Bachelor of Information System (SI) | GPA: 3.20 / 4.00</p>
+                <p><em>Thesis: Sistem Informasi Keuangan: Kitchen Al - Watani</em></p>
+            </div>
+            <div class="edu-item">
+                <div class="edu-header">
+                    <h3>RevoU</h3>
+                    <span>June, 2025 – Present</span>
+                </div>
+                <p>Full Stack Data Analytics</p>
+                <ul>
+                    <li>Completed intensive industry-focused program covering end-to-end data analysis.</li>
+                    <li>Hands-on experience with Python, SQL, Tableau, and Power BI.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills" class="card">
+            <h2>Skills & Mastery</h2>
+            <div class="skills-container">
+                <div class="skills-list">
+                    <h3>Hard Skills</h3>
+                    <p>Excel, SQL, Python, Power BI</p>
+                    <br>
+                    <h3>Soft Skills</h3>
+                    <p>Problem-Solving, Communication, Attention to Detail, Adaptability</p>
+                </div>
+                <div class="skills-chart">
+                    <div class="skill-bar-wrapper">
+                        <span>Excel</span>
+                        <div class="bar"><div class="progress hard" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-bar-wrapper">
+                        <span>SQL</span>
+                        <div class="bar"><div class="progress hard" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="skill-bar-wrapper">
+                        <span>Python</span>
+                        <div class="bar"><div class="progress hard" style="width: 75%;"></div></div>
+                    </div>
+                    <div class="skill-bar-wrapper">
+                        <span>Problem Solving</span>
+                        <div class="bar"><div class="progress soft" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="skill-bar-wrapper">
+                        <span>Communication</span>
+                        <div class="bar"><div class="progress soft" style="width: 80%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="card">
+            <h2>Experience</h2>
+            <div class="exp-item">
+                <div class="edu-header">
+                    <h3>Owner - Kitchen Al - Watani</h3>
+                    <span>Jan, 2019 – Present</span>
+                </div>
+                <p>Developed automated financial reports using Excel, improving pricing accuracy and tracking efficiency.</p>
+            </div>
+            <div class="exp-item">
+                <div class="edu-header">
+                    <h3>Data Entry - PT. Newfemme</h3>
+                    <span>March, 2022 – Aug, 2023</span>
+                </div>
+                <p>Validated high-volume operational data with 99%+ accuracy using Excel and internal SaaS systems.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="card">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x180" alt="Project 1">
+                    <h3>E-Commerce Sales Analysis</h3>
+                    <button class="btn-doc" onclick="openModal('proj1')">Documentation</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="card">
+            <h2>Contact Me</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body">
+                <img src="https://via.placeholder.com/600x300" alt="Project Detail" id="modal-img">
+                <h3 id="modal-title">Project Summary</h3>
+                <p id="modal-desc">Detailed analysis of market trends using Python and SQL.</p>
+                <div class="modal-btns">
+                    <a href="#" class="btn-link">PDF Documentation</a>
+                    <a href="#" class="btn-link">View Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
