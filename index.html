@@ -10,8 +10,17 @@
 </head>
 <body>
 
+    <nav class="side-nav">
+        <a href="#about" title="About Me"><i class="fas fa-user"></i></a>
+        <a href="#education" title="Education"><i class="fas fa-graduation-cap"></i></a>
+        <a href="#skills" title="Skills"><i class="fas fa-code"></i></a>
+        <a href="#experience" title="Experience"><i class="fas fa-briefcase"></i></a>
+        <a href="#projects" title="Projects"><i class="fas fa-project-diagram"></i></a>
+        <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
+    </nav>
+
     <header>
-        <nav class="container">
+        <nav class="container top-nav">
             <div class="logo">Salman Wahyuddin M</div>
             <div class="social-links">
                 <a href="https://wa.me/yournumber" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -22,11 +31,16 @@
     </header>
 
     <main class="container">
-        <section id="about" class="card">
-            <h2>About Me</h2>
-            <p>I am a data enthusiast with approximately one year of experience working as a Data Entry specialist. This experience helped me develop strong attention to detail and a solid understanding of how important data quality and organization are within a system.</p>
-            <p>To deepen my knowledge in the data field, I completed a Full Data Analytics course, where I gained a broader understanding of data processing and analysis.</p>
-            <p>Although I learned data analytics, I find myself more interested in <strong>Data Engineering</strong>, as I enjoy working on the system and backend side of data, such as organizing data flows and building the foundation that supports data analysis.</p>
+        <section id="about" class="card about-flex">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I am a data enthusiast with approximately one year of experience working as a Data Entry specialist. This experience helped me develop strong attention to detail and a solid understanding of how important data quality and organization are within a system.</p>
+                <p>To deepen my knowledge in the data field, I completed a Full Data Analytics course, where I gained a broader understanding of data processing and analysis.</p>
+                <p>Although I learned data analytics, I find myself more interested in <strong>Data Engineering</strong>, as I enjoy working on the system and backend side of data, such as organizing data flows and building the foundation that supports data analysis.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/250" alt="Salman Wahyuddin M">
+            </div>
         </section>
 
         <section id="education" class="card">
@@ -45,10 +59,7 @@
                     <span>June, 2025 – Present</span>
                 </div>
                 <p>Full Stack Data Analytics</p>
-                <ul>
-                    <li>Completed intensive industry-focused program covering end-to-end data analysis.</li>
-                    <li>Hands-on experience with Python, SQL, Tableau, and Power BI.</li>
-                </ul>
+                <p>Completed intensive industry-focused program covering SQL, Python, Tableau, and Power BI.</p>
             </div>
         </section>
 
@@ -57,52 +68,38 @@
             <div class="skills-container">
                 <div class="skills-list">
                     <h3>Hard Skills</h3>
-                    <p>Excel, SQL, Python, Power BI</p>
+                    <ul class="skill-names">
+                        <li class="skill-tag hard-tag" data-target="excel">Excel</li>
+                        <li class="skill-tag hard-tag" data-target="sql">SQL</li>
+                        <li class="skill-tag hard-tag" data-target="python">Python</li>
+                        <li class="skill-tag hard-tag" data-target="pbi">Power BI</li>
+                    </ul>
                     <br>
                     <h3>Soft Skills</h3>
-                    <p>Problem-Solving, Communication, Attention to Detail, Adaptability</p>
+                    <ul class="skill-names">
+                        <li class="skill-tag soft-tag" data-target="ps">Problem-Solving</li>
+                        <li class="skill-tag soft-tag" data-target="comm">Communication</li>
+                        <li class="skill-tag soft-tag" data-target="det">Attention to Detail</li>
+                        <li class="skill-tag soft-tag" data-target="adapt">Adaptability</li>
+                    </ul>
                 </div>
                 <div class="skills-chart">
-                    <div class="skill-bar-wrapper">
-                        <span>Excel</span>
-                        <div class="bar"><div class="progress hard" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-bar-wrapper">
-                        <span>SQL</span>
-                        <div class="bar"><div class="progress hard" style="width: 85%;"></div></div>
-                    </div>
-                    <div class="skill-bar-wrapper">
-                        <span>Python</span>
-                        <div class="bar"><div class="progress hard" style="width: 75%;"></div></div>
-                    </div>
-                    <div class="skill-bar-wrapper">
-                        <span>Problem Solving</span>
-                        <div class="bar"><div class="progress soft" style="width: 90%;"></div></div>
-                    </div>
-                    <div class="skill-bar-wrapper">
-                        <span>Communication</span>
-                        <div class="bar"><div class="progress soft" style="width: 80%;"></div></div>
-                    </div>
+                    <div class="skill-bar-wrapper" id="excel"><span>Excel</span><div class="bar"><div class="progress hard" style="width: 90%;"></div></div></div>
+                    <div class="skill-bar-wrapper" id="sql"><span>SQL</span><div class="bar"><div class="progress hard" style="width: 85%;"></div></div></div>
+                    <div class="skill-bar-wrapper" id="python"><span>Python</span><div class="bar"><div class="progress hard" style="width: 75%;"></div></div></div>
+                    <div class="skill-bar-wrapper" id="pbi"><span>Power BI</span><div class="bar"><div class="progress hard" style="width: 80%;"></div></div></div>
+                    <div class="skill-bar-wrapper" id="ps"><span>Problem Solving</span><div class="bar"><div class="progress soft" style="width: 95%;"></div></div></div>
+                    <div class="skill-bar-wrapper" id="comm"><span>Communication</span><div class="bar"><div class="progress soft" style="width: 85%;"></div></div></div>
                 </div>
             </div>
         </section>
 
         <section id="experience" class="card">
-            <h2>Experience</h2>
-            <div class="exp-item">
-                <div class="edu-header">
-                    <h3>Owner - Kitchen Al - Watani</h3>
-                    <span>Jan, 2019 – Present</span>
-                </div>
-                <p>Developed automated financial reports using Excel, improving pricing accuracy and tracking efficiency.</p>
-            </div>
-            <div class="exp-item">
-                <div class="edu-header">
-                    <h3>Data Entry - PT. Newfemme</h3>
-                    <span>March, 2022 – Aug, 2023</span>
-                </div>
-                <p>Validated high-volume operational data with 99%+ accuracy using Excel and internal SaaS systems.</p>
-            </div>
+             <h2>Experience</h2>
+             <div class="exp-item">
+                <div class="edu-header"><h3>Owner - Kitchen Al - Watani</h3><span>2019 - Present</span></div>
+                <p>Automated financial reports using Excel formulas and price calculation templates.</p>
+             </div>
         </section>
 
         <section id="projects" class="card">
@@ -110,7 +107,7 @@
             <div class="project-grid">
                 <div class="project-card">
                     <img src="https://via.placeholder.com/300x180" alt="Project 1">
-                    <h3>E-Commerce Sales Analysis</h3>
+                    <h3>Market Trend Analysis</h3>
                     <button class="btn-doc" onclick="openModal('proj1')">Documentation</button>
                 </div>
             </div>
@@ -133,10 +130,10 @@
             <div id="modal-body">
                 <img src="https://via.placeholder.com/600x300" alt="Project Detail" id="modal-img">
                 <h3 id="modal-title">Project Summary</h3>
-                <p id="modal-desc">Detailed analysis of market trends using Python and SQL.</p>
+                <p id="modal-desc"></p>
                 <div class="modal-btns">
-                    <a href="#" class="btn-link">PDF Documentation</a>
-                    <a href="#" class="btn-link">View Code</a>
+                    <a href="#" class="btn-link">PDF</a>
+                    <a href="#" class="btn-link">Code</a>
                 </div>
             </div>
         </div>
