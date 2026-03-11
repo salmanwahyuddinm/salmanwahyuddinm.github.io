@@ -1,36 +1,69 @@
-// Documentation Modal Logic
-const modal = document.getElementById("projectModal");
-const span = document.getElementsByClassName("close")[0];
+// Skill Interaction
+const skillTags = document.querySelectorAll('.skill-tag');
 
+skillTags.forEach(tag => {
+    tag.addEventListener('mouseenter', () => {
+        const skillId = `bar-${tag.getAttribute('data-skill')}`;
+        const barGroup = document.getElementById(skillId);
+        
+        if (tag.classList.contains('hard')) {
+            tag.classList.add('active-hard');
+            if(barGroup) barGroup.style.transform = "scale(1.05)";
+        } else {
+            tag.classList.add('active-soft');
+            if(barGroup) barGroup.style.transform = "scale(1.05)";
+        }
+    });
+
+    tag.addEventListener('mouseleave', () => {
+        const skillId = `bar-${tag.getAttribute('data-skill')}`;
+        const barGroup = document.getElementById(skillId);
+        
+        tag.classList.remove('active-hard', 'active-soft');
+        if(barGroup) barGroup.style.transform = "scale(1)";
+    });
+});
+
+// Modal Logic
 function openModal(projectId) {
-    const modalBody = document.getElementById("modal-body");
+    const modal = document.getElementById('projectModal');
+    const body = document.getElementById('modalBody');
     
-    // Example data for the modal
-    if(projectId === 'proj1') {
-        modalBody.innerHTML = `
-            <h3>E-Commerce Data Analysis</h3>
-            <img src="assets/project1.jpg" style="width:100%; border-radius:10px; margin: 10px 0;">
-            <p>Summary: Cleaned a dataset of 10,000 sales records to identify seasonal trends and customer demographics.</p>
-            <div style="margin-top: 20px; display: flex; gap: 10px;">
-                <a href="#" class="btn-sm">PDF</a>
-                <a href="#" class="btn-sm">Code</a>
-                <a href="#" class="btn-sm">Dashboard</a>
-            </div>
-        `;
-    }
+    // Dummy Data for Modal
+    const projects = {
+        'proj1': {
+            title: "E-commerce Sales Analysis",
+            summary: "End-to-end analysis of retail data using Python and SQL to identify growth opportunities.",
+            img: "https://via.placeholder.com/400x200",
+            pdf: "#",
+            code: "#",
+            dashboard: "#"
+        }
+    };
+
+    const p = projects[projectId];
+    body.innerHTML = `
+        <img src="${p.img}" style="width:100%; border-radius:15px; margin-bottom:15px;">
+        <h3>${p.title}</h3>
+        <p style="margin: 10px 0;">${p.summary}</p>
+        <div style="display:flex; gap:10px; margin-top:20px;">
+            <a href="${p.pdf}" class="btn-doc" style="background:#e74c3c; text-decoration:none;">PDF</a>
+            <a href="${p.code}" class="btn-doc" style="background:#27ae60; text-decoration:none;">Code</a>
+            <a href="${p.dashboard}" class="btn-doc" style="background:#3498db; text-decoration:none;">Dashboard</a>
+        </div>
+    `;
+    
     modal.style.display = "block";
 }
 
-// Close modal
+function closeModal() {
+    document.getElementById('projectModal').style.display = "none";
+}
+
+// Close modal when clicking outside
 window.onclick = function(event) {
+    const modal = document.getElementById('projectModal');
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
-
-// Simple Contact Form Alert
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you, Salman will get back to you soon!');
-    this.reset();
-});
