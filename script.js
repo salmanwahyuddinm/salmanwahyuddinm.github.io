@@ -245,9 +245,6 @@ function handleSubmit(e) {
   btn.textContent = "Sending...";
   btn.disabled = true;
 
-  // Open email client
-  window.location.href = mailtoLink;
-
   // Simulate success
   setTimeout(() => {
     form.reset();
