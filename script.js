@@ -220,40 +220,37 @@ document.addEventListener('keydown', e => {
 });
 
 // ─── CONTACT FORM ────────────────────────────────────────────────
-document.getElementById("contactForm").addEventListener("submit", function(e) {
+const form = document.getElementById("contactForm");
+const button = form.querySelector(".btn-send");
+const success = document.getElementById("formSuccess");
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const btn = document.querySelector(".btn-send");
-  const success = document.getElementById("formSuccess");
+  button.innerHTML = "Sending...";
+  button.disabled = true;
 
-  btn.textContent = "Sending...";
-  btn.disabled = true;
+  try {
+    await emailjs.send(
+      "service_i6ci1ua",
+      "template_r9qq8fr",
+      {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+      }
+    );
 
-  emailjs.send("service_i6ci1ua","template_fio8d0v",{
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      message: document.getElementById("message").value
-  })
-  .then(function(response) {
+    form.reset();
+    success.classList.remove("hidden");
 
-      document.getElementById("contactForm").reset();
-      success.classList.remove("hidden");
+  } catch (error) {
+    console.error(error);
+    alert("Failed to send message.");
+  }
 
-      btn.textContent = "Send Message";
-      btn.disabled = false;
-
-      setTimeout(() => {
-        success.classList.add("hidden");
-      }, 4000);
-
-  }, function(error) {
-
-      alert("Failed to send message. Please try again.");
-
-      btn.textContent = "Send Message";
-      btn.disabled = false;
-
-  });
+  button.innerHTML = "Send Message";
+  button.disabled = false;
 });
 
 // ─── PAGE LOAD FADE ──────────────────────────────────────────────
