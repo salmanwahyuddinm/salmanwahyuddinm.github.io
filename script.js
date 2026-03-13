@@ -147,8 +147,8 @@ const projectData = [
   {
     tag:       'Data Analytics',
     title:     'Mexico Toys Sales Analysis (Data Analytics Project)',
-    summary:   '•	Analyzed retail sales data to identify top-performing products, category profitability, and seasonal revenue trends, revealing that the Toys category contributes ~35% of total revenue.
-               '•	Identified a 55% sales decline from July to October through monthly trend analysis, indicating seasonal volatility and potential inventory management issues.
+    summary:   '•	Analyzed retail sales data to identify top-performing products, category profitability, and seasonal revenue trends, revealing that the Toys category contributes ~35% of total revenue.',
+               '•	Identified a 55% sales decline from July to October through monthly trend analysis, indicating seasonal volatility and potential inventory management issues.',
                '•	Discovered strong revenue concentration where top 3 products generate ~70% of sales, with Lego Bricks producing $2.39M, highlighting potential risk of SKU dependency.',
     imgStyle:  'background: linear-gradient(135deg,#f97316,#fb923c); font-size:5rem; content:"📊"',
     emoji:     '📊',
