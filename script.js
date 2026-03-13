@@ -229,7 +229,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
   btn.textContent = "Sending...";
   btn.disabled = true;
 
-  emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
+  emailjs.send("service_i6ci1ua","template_fio8d0v",{
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       message: document.getElementById("message").value
