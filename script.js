@@ -220,45 +220,41 @@ document.addEventListener('keydown', e => {
 });
 
 // ─── CONTACT FORM ────────────────────────────────────────────────
-document.getElementById("contactForm").addEventListener("submit", handleSubmit);
-
-function handleSubmit(e) {
+document.getElementById("contactForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const form = document.getElementById("contactForm");
+  const btn = document.querySelector(".btn-send");
   const success = document.getElementById("formSuccess");
-  const btn = form.querySelector(".btn-send");
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const message = document.getElementById("message").value;
-
-  const mailtoLink =
-    `mailto:salmanwahyuddin@gmail.com` +
-    `?subject=Portfolio Contact` +
-    `&body=Name: ${encodeURIComponent(name)}` +
-    `%0AEmail: ${encodeURIComponent(email)}` +
-    `%0AMessage: ${encodeURIComponent(message)}`;
 
   btn.textContent = "Sending...";
   btn.disabled = true;
 
-  // OPEN EMAIL CLIENT
-  window.location.href = mailtoLink;
+  emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      message: document.getElementById("message").value
+  })
+  .then(function(response) {
 
-  setTimeout(() => {
-    form.reset();
-    success.classList.remove("hidden");
+      document.getElementById("contactForm").reset();
+      success.classList.remove("hidden");
 
-    btn.textContent = "Send Message";
-    btn.disabled = false;
+      btn.textContent = "Send Message";
+      btn.disabled = false;
 
-    setTimeout(() => {
-      success.classList.add("hidden");
-    }, 4000);
+      setTimeout(() => {
+        success.classList.add("hidden");
+      }, 4000);
 
-  }, 1000);
-}
+  }, function(error) {
+
+      alert("Failed to send message. Please try again.");
+
+      btn.textContent = "Send Message";
+      btn.disabled = false;
+
+  });
+});
 
 // ─── PAGE LOAD FADE ──────────────────────────────────────────────
 document.body.style.opacity = '0';
