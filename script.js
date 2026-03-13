@@ -147,13 +147,15 @@ const projectData = [
   {
     tag:       'Data Analytics',
     title:     'Mexico Toys Sales Analysis (Data Analytics Project)',
-    summary:   'Conducted an end-to-end data analysis project to evaluate sales performance and identify opportunities to improve revenue growth for a toy retail business.',
+    summary:   '•	Analyzed retail sales data to identify top-performing products, category profitability, and seasonal revenue trends, revealing that the Toys category contributes ~35% of total revenue.
+               '•	Identified a 55% sales decline from July to October through monthly trend analysis, indicating seasonal volatility and potential inventory management issues.
+               '•	Discovered strong revenue concentration where top 3 products generate ~70% of sales, with Lego Bricks producing $2.39M, highlighting potential risk of SKU dependency.',
     imgStyle:  'background: linear-gradient(135deg,#f97316,#fb923c); font-size:5rem; content:"📊"',
     emoji:     '📊',
     imgColor:  'linear-gradient(135deg,#f97316,#fb923c)',
-    pdf:       '#',   // Replace with your PDF link
-    code:      '#',   // Replace with your GitHub link
-    dashboard: '#',   // Replace with your Power BI / Tableau link
+    pdf:       'https://drive.google.com/file/d/11B6ojj_uQiuKstP01DtjDlZB7slB3NDh/view?usp=drive_link',   // Replace with your PDF link
+    code:      'https://colab.research.google.com/drive/1nm8E49PRqTH2EckDpCBYRHol-HlP_2BK?usp=drive_link',   // Replace with your GitHub link
+    dashboard: 'https://public.tableau.com/views/DEEPPMexico/Dashboard2?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',   // Replace with your Power BI / Tableau link
   },
   {
     tag:       'SQL Analysis',
