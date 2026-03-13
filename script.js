@@ -225,6 +225,8 @@ function handleSubmit(e) {
   const form    = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
   const btn     = form.querySelector('.btn-send');
+   
+  const mailtoLink = `mailto:salmanwahyuddinm@gmail.com?subject=Portfolio Contact&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
 
   btn.textContent = 'Sending…';
   btn.disabled    = true;
