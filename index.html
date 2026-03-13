@@ -252,16 +252,18 @@
         </div>
       </div>
     </section>
-
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    
+    <!-- CONTACT -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
 (function(){
-emailjs.init("pbRR1NMBVSKbH194j");
+emailjs.init({
+  publicKey: "pbRR1NMBVSKbH194j"
+});
 })();
 </script>
     
-    <!-- CONTACT -->
     <section id="contact" class="section section-alt">
       <div class="section-inner">
         <div class="section-label">06 — Contact</div>
@@ -340,7 +342,7 @@ emailjs.init("pbRR1NMBVSKbH194j");
       </div>
     </div>
   </div>
-
+  
   <script src="script.js"></script>
 </body>
 </html>
