@@ -302,17 +302,6 @@ body {
   object-fit: cover;
 }
 
-.profile-badge {
-  margin-top: 16px;
-  background: var(--orange);
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 6px 20px;
-  border-radius: 50px;
-}
-
 /* ========================================
    EDUCATION TIMELINE
 ======================================== */
