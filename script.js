@@ -233,7 +233,6 @@ function handleSubmit(e) {
   const email = document.getElementById("email").value;
   const message = document.getElementById("message").value;
 
-  // Create mailto link
   const mailtoLink =
     `mailto:salmanwahyuddin@gmail.com` +
     `?subject=Portfolio Contact` +
@@ -241,11 +240,12 @@ function handleSubmit(e) {
     `%0AEmail: ${encodeURIComponent(email)}` +
     `%0AMessage: ${encodeURIComponent(message)}`;
 
-  // Button loading state
   btn.textContent = "Sending...";
   btn.disabled = true;
 
-  // Simulate success
+  // OPEN EMAIL CLIENT
+  window.location.href = mailtoLink;
+
   setTimeout(() => {
     form.reset();
     success.classList.remove("hidden");
