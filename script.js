@@ -222,9 +222,10 @@ document.addEventListener('keydown', e => {
 // ─── CONTACT FORM ────────────────────────────────────────────────
 function handleSubmit(e) {
   e.preventDefault();
-  const form    = document.getElementById('contactForm');
-  const success = document.getElementById('formSuccess');
-  const btn     = form.querySelector('.btn-send');
+  const form = document.getElementById('contactForm');
+  const name = form.querySelector('#name').value;
+  const email = form.querySelector('#email').value;
+  const message = form.querySelector('#message').value;
    
   const mailtoLink = `mailto:salmanwahyuddinm@gmail.com?subject=Portfolio Contact&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
 
