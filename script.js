@@ -151,8 +151,8 @@ const projectData = [
     imgStyle:  'background: linear-gradient(135deg,#f97316,#fb923c); font-size:5rem; content:"📊"',
     emoji:     '📊',
     imgColor:  'linear-gradient(135deg,#f97316,#fb923c)',
-    pdf:       'https://drive.google.com/file/d/11B6ojj_uQiuKstP01DtjDlZB7slB3NDh/view?usp=sharing',   // Replace with your PDF link
-    code:      'https://colab.research.google.com/drive/1nm8E49PRqTH2EckDpCBYRHol-HlP_2BK?usp=drive_link',   // Replace with your GitHub link
+    pdf:       'https://drive.google.com/file/d/11B6oji_uQiuKstP01DtjD1ZB7s1B3NDh/preview',   // Replace with your PDF link
+    code:      'https://colab.research.google.com/drive/1nm8E49PRqTH2EckDpCBYRHol-HlP_2BK?usp=sharing',   // Replace with your GitHub link
     dashboard: 'https://public.tableau.com/views/DEEPPMexico/Dashboard2?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',   // Replace with your Power BI / Tableau link
   },
   {
