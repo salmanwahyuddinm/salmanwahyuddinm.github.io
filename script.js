@@ -147,7 +147,7 @@ const projectData = [
   {
     tag:       'Data Analytics',
     title:     'Mexico Toys Sales Analysis (Data Analytics Project)',
-    summary:   '•	Analyzed retail sales data to identify top-performing products, category profitability, and seasonal revenue trends, revealing that the Toys category contributes ~35% of total revenue.',
+    summary:   'Analyzed retail sales data to identify top-performing products, category profitability, and seasonal revenue trends, revealing that the Toys category contributes ~35% of total revenue.',
     imgStyle:  'background: linear-gradient(135deg,#f97316,#fb923c); font-size:5rem; content:"📊"',
     emoji:     '📊',
     imgColor:  'linear-gradient(135deg,#f97316,#fb923c)',
