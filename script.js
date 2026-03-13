@@ -229,6 +229,8 @@ function handleSubmit(e) {
    
   const mailtoLink = `mailto:salmanwahyuddinm@gmail.com?subject=Portfolio Contact&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
 
+  window.location.href = mailtoLink;
+   
   btn.textContent = 'Sending…';
   btn.disabled    = true;
 
