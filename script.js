@@ -220,29 +220,47 @@ document.addEventListener('keydown', e => {
 });
 
 // ─── CONTACT FORM ────────────────────────────────────────────────
+document.getElementById("contactForm").addEventListener("submit", handleSubmit);
+
 function handleSubmit(e) {
   e.preventDefault();
-  const form = document.getElementById('contactForm');
-  const name = form.querySelector('#name').value;
-  const email = form.querySelector('#email').value;
-  const message = form.querySelector('#message').value;
-   
-  const mailtoLink = `mailto:salmanwahyuddinm@gmail.com?subject=Portfolio Contact&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
 
+  const form = document.getElementById("contactForm");
+  const success = document.getElementById("formSuccess");
+  const btn = form.querySelector(".btn-send");
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  // Create mailto link
+  const mailtoLink =
+    `mailto:salmanwahyuddin@gmail.com` +
+    `?subject=Portfolio Contact` +
+    `&body=Name: ${encodeURIComponent(name)}` +
+    `%0AEmail: ${encodeURIComponent(email)}` +
+    `%0AMessage: ${encodeURIComponent(message)}`;
+
+  // Button loading state
+  btn.textContent = "Sending...";
+  btn.disabled = true;
+
+  // Open email client
   window.location.href = mailtoLink;
-   
-  btn.textContent = 'Sending…';
-  btn.disabled    = true;
 
-  // Simulate sending (wire up to your backend / Formspree / EmailJS here)
+  // Simulate success
   setTimeout(() => {
     form.reset();
-    success.classList.remove('hidden');
-    btn.textContent = 'Send Message';
-    btn.disabled    = false;
+    success.classList.remove("hidden");
 
-    setTimeout(() => success.classList.add('hidden'), 4000);
-  }, 1200);
+    btn.textContent = "Send Message";
+    btn.disabled = false;
+
+    setTimeout(() => {
+      success.classList.add("hidden");
+    }, 4000);
+
+  }, 1000);
 }
 
 // ─── PAGE LOAD FADE ──────────────────────────────────────────────
