@@ -56,17 +56,17 @@ revealEls.forEach(el => revealObserver.observe(el));
 
 // ─── SKILLS CHART ────────────────────────────────────────────────
 const hardSkillData = [
-  { name: 'Excel',    pct: 85 },
-  { name: 'SQL',      pct: 78 },
-  { name: 'Python',   pct: 70 },
-  { name: 'Power BI', pct: 72 },
+  { name: 'Excel',    pct: 70 },
+  { name: 'SQL',      pct: 50 },
+  { name: 'Python',   pct: 60 },
+  { name: 'Power BI', pct: 40 },
 ];
 
 const softSkillData = [
-  { name: 'Problem-Solving',      pct: 88 },
-  { name: 'Communication',        pct: 80 },
-  { name: 'Attention to Detail',  pct: 90 },
-  { name: 'Adaptability',         pct: 82 },
+  { name: 'Problem-Solving',      pct: 60 },
+  { name: 'Communication',        pct: 50 },
+  { name: 'Attention to Detail',  pct: 75 },
+  { name: 'Adaptability',         pct: 80 },
 ];
 
 const chartPlaceholder = document.querySelector('.chart-placeholder');
@@ -146,8 +146,8 @@ document.querySelectorAll('.soft-skill').forEach(item => {
 const projectData = [
   {
     tag:       'Data Analytics',
-    title:     'Sales Performance Dashboard',
-    summary:   'End-to-end sales analysis using Python & Power BI. Cleaned raw transactional data, built KPI metrics, and created an interactive dashboard to monitor monthly revenue trends and top-performing products. Delivered actionable insights that improved business decision-making.',
+    title:     'Mexico Toys Sales Analysis (Data Analytics Project)',
+    summary:   'Conducted an end-to-end data analysis project to evaluate sales performance and identify opportunities to improve revenue growth for a toy retail business.',
     imgStyle:  'background: linear-gradient(135deg,#f97316,#fb923c); font-size:5rem; content:"📊"',
     emoji:     '📊',
     imgColor:  'linear-gradient(135deg,#f97316,#fb923c)',
