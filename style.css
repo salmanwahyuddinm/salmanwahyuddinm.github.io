@@ -19,6 +19,7 @@
   --whatsapp: #25d366;
   --linkedin: #0077b5;
   --gmail: #ea4335;
+  --cv: #ea4335;
   --sidebar-w: 56px;
   --header-h: 68px;
   --radius: 16px;
@@ -180,7 +181,7 @@ body {
 
 .contact-link.whatsapp:hover { background: #25d36615; color: var(--whatsapp); border-color: var(--whatsapp); }
 .contact-link.linkedin:hover { background: #0077b515; color: var(--linkedin); border-color: var(--linkedin); }
-.contact-link.gmail:hover    { background: #ea433515; color: var(--gmail);    border-color: var(--gmail); }
+.contact-link.cv:hover    { background: #ea433515; color: var(--cv);    border-color: var(--cv); }
 
 /* ========================================
    SECTIONS
@@ -1011,7 +1012,7 @@ body {
 
 .whatsapp-pill { background: rgba(37,211,102,0.15); color: var(--whatsapp); }
 .linkedin-pill { background: rgba(0,119,181,0.15); color: var(--linkedin); }
-.gmail-pill    { background: rgba(234,67,53,0.15);  color: var(--gmail); }
+.cv-pill    { background: rgba(234,67,53,0.15);  color: var(--cv); }
 
 /* ========================================
    FOOTER
