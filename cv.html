@@ -1,66 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>My CV</title>
+<div class="modal-overlay" id="cvModal" onclick="closeCV()">
+  <div class="modal-box" style="max-width:900px;" onclick="event.stopPropagation()">
+    
+    <button class="modal-close" onclick="closeCV()">✕</button>
 
-<style>
+    <div class="modal-img-wrap" style="background:linear-gradient(135deg,#f97316,#fb923c); display:flex; align-items:center; justify-content:center;">
+      <span style="font-size:4rem;">📄</span>
+    </div>
 
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#faf8f5;
-  display:flex;
-  flex-direction:column;
-  height:100vh;
-}
+    <div class="modal-content">
 
-.cv-header{
-  background:#ffffff;
-  padding:12px 20px;
-  border-bottom:1px solid #e8e3dd;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+      <div class="modal-tag">CURRICULUM VITAE</div>
+      <h3 class="modal-title">Salman Wahyuddin Muharam</h3>
+      <p class="modal-summary">
+        You can preview my CV below or download the full PDF version.
+      </p>
 
-.download-btn{
-  padding:8px 18px;
-  background:#f97316;
-  color:white;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:600;
-}
+      <div style="height:420px; margin-bottom:20px;">
+        <embed 
+          src="Assets/Salman_Wahyuddin_Muharam_CV.pdf"
+          type="application/pdf"
+          width="100%"
+          height="100%">
+      </div>
 
-.download-btn:hover{
-  background:#ea6800;
-}
+      <div class="modal-actions">
+        <a href="Assets/Salman_Wahyuddin_Muharam_CV.pdf" download class="btn-modal pdf">
+          ⬇ Download CV
+        </a>
+      </div>
 
-.cv-viewer{
-  flex:1;
-}
+    </div>
 
-</style>
-</head>
-
-<body>
-
-<div class="cv-header">
-  <strong>Salman Wahyuddin Muharam – CV</strong>
-
-  <a href="Assets/Salman_Wahyuddin_Muharam_CV.pdf" download class="download-btn">
-    Download
-  </a>
+  </div>
 </div>
-
-<div class="cv-viewer">
-  <embed 
-    src="Assets/Salman_Wahyuddin_Muharam_CV.pdf" 
-    type="application/pdf"
-    width="100%"
-    height="100%">
-</div>
-
-</body>
-</html>
