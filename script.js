@@ -253,6 +253,15 @@ form.addEventListener("submit", async (e) => {
   button.disabled = false;
 });
 
+// ─── CV ──────────────────────────────────────────────────────────
+function openCV() {
+  window.open(
+    "cv.html",
+    "cvWindow",
+    "width=900,height=700,top=100,left=200,resizable=yes,scrollbars=yes"
+  );
+}
+
 // ─── PAGE LOAD FADE ──────────────────────────────────────────────
 document.body.style.opacity = '0';
 document.body.style.transition = 'opacity 0.5s';
