@@ -888,6 +888,11 @@ body {
 /* ========================================
    CONTACT
 ======================================== */
+.social-icon{
+  width:18px;
+  height:18px;
+}
+
 .contact-wrap {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
