@@ -254,14 +254,18 @@ form.addEventListener("submit", async (e) => {
 });
 
 // ─── CV ──────────────────────────────────────────────────────────
-const cvModal = document.getElementById("cvModal");
+function openCV() {
+  const cvModal = document.getElementById("cvModal");
+  if (!cvModal) return;
 
-function openCV(){
   cvModal.classList.add("open");
   document.body.style.overflow = "hidden";
 }
 
-function closeCV(){
+function closeCV() {
+  const cvModal = document.getElementById("cvModal");
+  if (!cvModal) return;
+
   cvModal.classList.remove("open");
   document.body.style.overflow = "";
 }
