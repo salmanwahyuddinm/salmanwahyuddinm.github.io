@@ -254,12 +254,16 @@ form.addEventListener("submit", async (e) => {
 });
 
 // ─── CV ──────────────────────────────────────────────────────────
-function openCV() {
-  window.open(
-    "cv.html",
-    "cvWindow",
-    "width=900,height=700,top=100,left=200,resizable=yes,scrollbars=yes"
-  );
+const cvModal = document.getElementById("cvModal");
+
+function openCV(){
+  cvModal.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCV(){
+  cvModal.classList.remove("open");
+  document.body.style.overflow = "";
 }
 
 // ─── PAGE LOAD FADE ──────────────────────────────────────────────
