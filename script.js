@@ -59,7 +59,7 @@ const hardSkillData = [
   { name: 'Excel',    pct: 50 },
   { name: 'SQL',      pct: 50 },
   { name: 'Python',   pct: 60 },
-  { name: 'Power BI', pct: 40 },
+  { name: 'Tableu', pct: 40 },
 ];
 
 const softSkillData = [
