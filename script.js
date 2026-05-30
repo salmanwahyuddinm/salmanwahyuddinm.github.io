@@ -56,10 +56,10 @@ revealEls.forEach(el => revealObserver.observe(el));
 
 // ─── SKILLS CHART ────────────────────────────────────────────────
 const hardSkillData = [
-  { name: 'Excel',    pct: 50 },
+  { name: 'Excel',    pct: 75 },
   { name: 'SQL',      pct: 50 },
-  { name: 'Python',   pct: 60 },
-  { name: 'Tableu', pct: 40 },
+  { name: 'Python',   pct: 50 },
+  { name: 'Tableu', pct: 50 },
 ];
 
 const softSkillData = [
